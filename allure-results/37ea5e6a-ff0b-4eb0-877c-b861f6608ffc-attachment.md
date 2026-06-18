@@ -1,0 +1,87 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: searchStock.spec.ts >> NSE Live Equity Market >> Search HDFC BANK stock
+- Location: tests/searchStock.spec.ts:6:9
+
+# Error details
+
+```
+Error: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.nseindia.com/market-data/live-equity-market
+Call log:
+  - navigating to "https://www.nseindia.com/market-data/live-equity-market", waiting until "load"
+
+```
+
+# Test source
+
+```ts
+  1  | import { Page, Locator, expect } from '@playwright/test';
+  2  | 
+  3  | export class Homepage {
+  4  | 
+  5  |     readonly page: Page;
+  6  | 
+  7  |     // Locators
+  8  |     readonly searchIcon: Locator;
+  9  |     readonly searchTextbox: Locator;
+  10 |     //readonly searchButton: Locator;
+  11 |     readonly searchResult: Locator;
+  12 | 
+  13 |     constructor(page: Page) {
+  14 |         this.page = page;
+  15 | 
+  16 |         this.searchIcon = page.locator('#header-search-input') 
+  17 |         this.searchTextbox = page.locator('input[placeholder*="Search"]');
+  18 |         //this.searchButton = page.locator('button:has-text("Search")');
+  19 | 
+  20 |         // Dynamic result locator
+  21 |         this.searchResult = page.locator('//div//p//span[contains(text(),"HDFC Bank")]');
+  22 |     }
+  23 | 
+  24 |     /**
+  25 |      * Navigate to NSE Live Equity Market page
+  26 |      */
+  27 |     async navigateToLiveEquityMarket() {
+> 28 |         await this.page.goto(
+     |                         ^ Error: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.nseindia.com/market-data/live-equity-market
+  29 |             'https://www.nseindia.com/market-data/live-equity-market'
+  30 |         );
+  31 |     }
+  32 | 
+  33 |     /**
+  34 |      * Search stock
+  35 |      */
+  36 |     async searchStock(stockName: string) {
+  37 | 
+  38 |         await this.searchIcon.click();
+  39 | 
+  40 |         await this.searchTextbox.waitFor({
+  41 |             state: 'visible'
+  42 |         });
+  43 | 
+  44 |        await this.searchTextbox.fill(stockName);
+  45 | 
+  46 |         await this.searchResult.waitFor({
+  47 |         state: 'visible'
+  48 |     });
+  49 | 
+  50 |         await this.searchResult.click();
+  51 |     }
+  52 | 
+  53 |     /**
+  54 |      * Verify search result
+  55 |      */
+  56 |     async verifySearchResult(stockName: string) {
+  57 | 
+  58 |         await expect(
+  59 |             this.page.locator(`text=${stockName}`)
+  60 |         ).toBeVisible();
+  61 |     }
+  62 | }
+```

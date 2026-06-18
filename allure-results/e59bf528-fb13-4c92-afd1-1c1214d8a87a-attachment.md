@@ -1,0 +1,2041 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: searchStock.spec.ts >> NSE Live Equity Market >> Search HDFC and select from dropdown
+- Location: tests/searchStock.spec.ts:6:5
+
+# Error details
+
+```
+TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('div.autocompleteList.tt-suggestion.tt-selectable.active') to be visible
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - list [ref=e6]:
+    - listitem [ref=e7]:
+      - link "Option Chain" [ref=e8] [cursor=pointer]:
+        - /url: /option-chain
+    - listitem [ref=e9]:
+      - link "Market Turnover" [ref=e10] [cursor=pointer]:
+        - /url: "#modal_market_turnover_popup"
+    - listitem [ref=e11]:
+      - link "Listings" [ref=e12] [cursor=pointer]:
+        - /url: /market-data/new-stock-exchange-listings-today
+    - listitem [ref=e13]:
+      - link "IPO" [ref=e14] [cursor=pointer]:
+        - /url: /market-data/all-upcoming-issues-ipo
+    - listitem [ref=e15]:
+      - link "Circulars" [ref=e16] [cursor=pointer]:
+        - /url: /resources/exchange-communication-circulars
+    - listitem [ref=e17]:
+      - link "Daily Report" [ref=e18] [cursor=pointer]:
+        - /url: /all-reports
+    - listitem [ref=e19]:
+      - link "Holidays" [ref=e20] [cursor=pointer]:
+        - /url: /resources/exchange-communication-holidays
+    - listitem [ref=e21]:
+      - link "Corporates" [ref=e22] [cursor=pointer]:
+        - /url: /companies-listing/corporate-filings-application
+    - listitem [ref=e23]:
+      - link "Press Releases" [ref=e24] [cursor=pointer]:
+        - /url: /resources/exchange-communication-press-releases
+    - listitem [ref=e25]:
+      - link "Contact Us" [ref=e26] [cursor=pointer]:
+        - /url: /contact/contact-us
+    - listitem [ref=e27]:
+      - generic [ref=e28] [cursor=pointer]:
+        - generic [ref=e29]: English
+        - img "down-arrow" [ref=e30]
+    - listitem [ref=e31]:
+      - button [ref=e32] [cursor=pointer]:
+        - img [ref=e33]: 
+    - listitem [ref=e34]:
+      - button "Events List" [ref=e35] [cursor=pointer]:
+        - img [ref=e36]: 
+  - banner [ref=e37]:
+    - navigation [ref=e39]:
+      - generic [ref=e40]:
+        - link "NSE India" [ref=e41] [cursor=pointer]:
+          - /url: /
+          - img "NSE India" [ref=e42]
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]:
+              - combobox "Search by Company name, Index or Symbol..." [expanded] [active] [ref=e47]:
+                - text: HDFC Bank
+                - listbox [expanded] [ref=e48]:
+                  - toolbar "search filters" [ref=e49]:
+                    - generic [ref=e50] [cursor=pointer]: All
+                    - generic [ref=e51] [cursor=pointer]: Equity Stocks
+                    - generic [ref=e52] [cursor=pointer]: Derivatives
+                    - generic [ref=e53] [cursor=pointer]: ETFs
+                    - generic [ref=e54] [cursor=pointer]: Debt/Others
+                  - paragraph [ref=e56]:
+                    - generic [ref=e57]: Unable to fetch results
+              - status [ref=e58]: 1 result is available, use up and down arrow keys to navigate.
+            - generic "Clear Search" [ref=e59] [cursor=pointer]:
+              - img [ref=e60]: 
+            - button "Click to Search" [ref=e61] [cursor=pointer]:
+              - img "Get Quote Search" [ref=e62]
+          - generic [ref=e63]:
+            - list
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - figure [ref=e68]:
+              - link "NSE - NIFTY 50" [ref=e69] [cursor=pointer]:
+                - /url: /index-tracker/NIFTY%2050
+                - img "NSE - NIFTY 50" [ref=e70]
+            - generic [ref=e72]:
+              - generic [ref=e73]:
+                - generic [ref=e74]:
+                  - generic [ref=e75]: 24,085.70
+                  - generic [ref=e76]: 
+                - generic [ref=e77]: 96.55 (0.4%)
+              - paragraph [ref=e79]: 17-Jun-2026 15:30
+              - generic [ref=e80]:
+                - text: Streaming
+                - img "Streaming" [ref=e81]
+          - generic "Market Ticker Carousel" [ref=e82]:
+            - generic [ref=e84]:
+              - generic [ref=e86]:
+                - figure [ref=e87]:
+                  - link [ref=e88] [cursor=pointer]:
+                    - /url: "#"
+                    - text: Market Capitalization
+                - paragraph [ref=e89]:
+                  - generic [ref=e90]: 
+                  - text: Lac Crs 475.04 | Tn $ 5.03
+                - paragraph [ref=e91]: 17-Jun-2026
+              - tabpanel [ref=e92]:
+                - generic [ref=e93]:
+                  - generic [ref=e94]:
+                    - generic [ref=e95]:
+                      - img [ref=e96]
+                      - generic [ref=e97]: Futures 30-Jun-2026
+                    - generic [ref=e99]: 24,019.50 -80.50 (-0.33%)
+                  - paragraph [ref=e101]: 18-Jun-2026 00:36
+              - tabpanel [ref=e102]:
+                - generic [ref=e103]:
+                  - figure [ref=e104]:
+                    - link [ref=e105] [cursor=pointer]:
+                      - /url: /currency-getquote?symbol=USDINR#inr-contracts
+                      - text: USDINR
+                    - text: Futures
+                  - paragraph [ref=e106]:
+                    - text: 25-Jun-2026 |
+                    - generic [ref=e107]: 
+                    - text: "94.5425"
+                  - paragraph [ref=e108]: 17-Jun-2026 17:00
+              - tabpanel [ref=e109]:
+                - generic [ref=e110]:
+                  - figure [ref=e111]:
+                    - link "Market Capitalization" [ref=e112] [cursor=pointer]:
+                      - /url: "#"
+                  - paragraph [ref=e113]:
+                    - generic [ref=e114]: 
+                    - text: Lac Crs 475.04 | Tn $ 5.03
+                  - paragraph [ref=e115]: 17-Jun-2026
+              - generic [ref=e117]:
+                - generic [ref=e118]:
+                  - generic [ref=e119]:
+                    - img [ref=e120]
+                    - generic [ref=e121]: Futures 30-Jun-2026
+                  - generic [ref=e123]: 24,019.50 -80.50 (-0.33%)
+                - paragraph [ref=e125]: 18-Jun-2026 00:36
+              - generic [ref=e127]:
+                - figure [ref=e128]:
+                  - link [ref=e129] [cursor=pointer]:
+                    - /url: /currency-getquote?symbol=USDINR#inr-contracts
+                    - text: USDINR
+                  - text: Futures
+                - paragraph [ref=e130]:
+                  - text: 25-Jun-2026 |
+                  - generic [ref=e131]: 
+                  - text: "94.5425"
+                - paragraph [ref=e132]: 17-Jun-2026 17:00
+              - generic [ref=e134]:
+                - figure [ref=e135]:
+                  - link [ref=e136] [cursor=pointer]:
+                    - /url: "#"
+                    - text: Market Capitalization
+                - paragraph [ref=e137]:
+                  - generic [ref=e138]: 
+                  - text: Lac Crs 475.04 | Tn $ 5.03
+                - paragraph [ref=e139]: 17-Jun-2026
+            - tablist [ref=e140]:
+              - tab "Slide 1" [ref=e141] [cursor=pointer]: "01"
+              - tab "Slide 2" [ref=e142] [cursor=pointer]: "02"
+              - tab "Slide 3" [selected] [ref=e143] [cursor=pointer]: "03"
+          - button "playpause" [ref=e144] [cursor=pointer]:
+            - generic [ref=e145]: 
+      - navigation [ref=e148]:
+        - list [ref=e149]:
+          - listitem [ref=e150]:
+            - link "Home" [ref=e151] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e152]:
+            - link "About" [ref=e153] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e154]:
+            - link "Market Data" [ref=e155] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e156]:
+            - link "Invest" [ref=e157] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e158]:
+            - link "List" [ref=e159] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e160]:
+            - link "Trade" [ref=e161] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e162]:
+            - link "Regulation" [ref=e163] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e164]:
+            - link "Learn" [ref=e165] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e166]:
+            - link "Resources" [ref=e167] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e168]:
+            - link "Complaints" [ref=e169] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e170]:
+            - link "RESEARCH" [ref=e171] [cursor=pointer]:
+              - /url: javascript:;
+          - listitem [ref=e172]:
+            - link "Investor Relations" [ref=e173] [cursor=pointer]:
+              - /url: /static/investor-relations/announcements
+  - generic:       
+  - generic [ref=e174]:
+    - generic [ref=e176]:
+      - text:    
+      - heading "Market Watch - Equity/Stock" [level=1] [ref=e177]
+    - tabpanel [ref=e184]:
+      - navigation [ref=e185]:
+        - tablist [ref=e187]:
+          - tab "Equity/Stock" [ref=e188] [cursor=pointer]
+          - link "T0 settlement" [ref=e189] [cursor=pointer]:
+            - /url: /market-data/live-t0-market
+          - link "SME Market" [ref=e190] [cursor=pointer]:
+            - /url: /market-data/sme-market
+          - link "Sovereign Gold Bonds (SGB)" [ref=e191] [cursor=pointer]:
+            - /url: /market-data/sovereign-gold-bond
+          - link "Exchange Traded Funds" [ref=e192] [cursor=pointer]:
+            - /url: /market-data/exchange-traded-funds-etf
+          - link "Block Deals" [ref=e193] [cursor=pointer]:
+            - /url: /market-data/block-deal-watch
+          - link "REITS/INVITS" [ref=e194] [cursor=pointer]:
+            - /url: /market-data/reits-invits
+      - tabpanel [ref=e197]:
+        - generic [ref=e198]:
+          - combobox "Category 1" [ref=e201] [cursor=pointer]:
+            - option "NIFTY 50" [selected]
+            - option "NIFTY BANK"
+            - option "NIFTY FINANCIAL SERVICES"
+            - option "NIFTY MIDCAP SELECT"
+            - option "NIFTY NEXT 50"
+            - option "NIFTY 100"
+            - option "NIFTY 200"
+            - option "NIFTY 500"
+            - option "NIFTY INDIA FPI 150"
+            - option "NIFTY LARGEMIDCAP 250"
+            - option "NIFTY MICROCAP 250"
+            - option "NIFTY MIDCAP 100"
+            - option "NIFTY MIDCAP 150"
+            - option "NIFTY MIDCAP 50"
+            - option "NIFTY MIDSMALLCAP400 50:50"
+            - option "NIFTY MIDSMALLCAP 400"
+            - option "NIFTY SMALLCAP 500"
+            - option "NIFTY SMALLCAP 100"
+            - option "NIFTY SMALLCAP 250"
+            - option "NIFTY SMALLCAP 50"
+            - option "NIFTY TOTAL MARKET"
+            - option "NIFTY500 LARGEMIDSMALL EQUAL-CAP WEIGHTED"
+            - option "NIFTY500 MULTICAP 50:25:25"
+            - option "NIFTY AUTO"
+            - option "NIFTY CEMENT"
+            - option "NIFTY CHEMICALS"
+            - option "NIFTY CONSUMER DURABLES"
+            - option "NIFTY FINANCIAL SERVICES EX-BANK"
+            - option "NIFTY FINANCIAL SERVICES 25/50"
+            - option "NIFTY FMCG"
+            - option "NIFTY HEALTHCARE INDEX"
+            - option "NIFTY IT"
+            - option "NIFTY MEDIA"
+            - option "NIFTY METAL"
+            - option "NIFTY MIDSMALL HEALTHCARE"
+            - option "NIFTY MIDSMALL FINANCIAL SERVICES"
+            - option "NIFTY MIDSMALL IT & TELECOM"
+            - option "NIFTY OIL & GAS"
+            - option "NIFTY PHARMA"
+            - option "NIFTY PSU BANK"
+            - option "NIFTY PRIVATE BANK"
+            - option "NIFTY REALTY"
+            - option "NIFTY REITS & REALTY"
+            - option "NIFTY500 HEALTHCARE"
+            - option "NIFTY CAPITAL MARKETS"
+            - option "NIFTY COMMODITIES"
+            - option "NIFTY INDIA CONSUMPTION"
+            - option "NIFTY CORE HOUSING"
+            - option "NIFTY INDIA SELECT 5 CORPORATE GROUPS (MAATR)"
+            - option "NIFTY CPSE"
+            - option "NIFTY ENERGY"
+            - option "NIFTY EV & NEW AGE AUTOMOTIVE"
+            - option "NIFTY HOUSING"
+            - option "NIFTY INDIA DEFENCE"
+            - option "NIFTY INDIA DIGITAL"
+            - option "NIFTY INDIA TOURISM"
+            - option "NIFTY INDIA MANUFACTURING"
+            - option "NIFTY INFRASTRUCTURE"
+            - option "NIFTY INDIA INFRASTRUCTURE & LOGISTICS"
+            - option "NIFTY INDIA INTERNET"
+            - option "NIFTY IPO"
+            - option "NIFTY MIDCAP LIQUID 15"
+            - option "NIFTY MNC"
+            - option "NIFTY MOBILITY"
+            - option "NIFTY MIDSMALL INDIA CONSUMPTION"
+            - option "NIFTY500 MULTICAP INFRASTRUCTURE 50:30:20"
+            - option "NIFTY500 MULTICAP INDIA MANUFACTURING 50:30:20"
+            - option "NIFTY INDIA NEW AGE CONSUMPTION"
+            - option "NIFTY NON-CYCLICAL CONSUMER"
+            - option "NIFTY PSE"
+            - option "NIFTY INDIA RAILWAYS PSU"
+            - option "NIFTY RURAL"
+            - option "NIFTY SERVICES SECTOR"
+            - option "NIFTY SHARIAH 25"
+            - option "NIFTY SME EMERGE"
+            - option "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP"
+            - option "NIFTY TRANSPORTATION & LOGISTICS"
+            - option "NIFTY WAVES"
+            - option "NIFTY100 ENHANCED ESG"
+            - option "NIFTY100 ESG"
+            - option "NIFTY100 LIQUID 15"
+            - option "NIFTY50 SHARIAH"
+            - option "NIFTY500 SHARIAH"
+            - option "NIFTY CONGLOMERATE 50"
+            - option "NIFTY ALPHA 50"
+            - option "NIFTY ALPHA LOW-VOLATILITY 30"
+            - option "NIFTY ALPHA QUALITY LOW-VOLATILITY 30"
+            - option "NIFTY ALPHA QUALITY VALUE LOW-VOLATILITY 30"
+            - option "NIFTY DIVIDEND OPPORTUNITIES 50"
+            - option "NIFTY GROWTH SECTORS 15"
+            - option "NIFTY HIGH BETA 50"
+            - option "NIFTY LOW VOLATILITY 50"
+            - option "NIFTY MIDCAP150 QUALITY 50"
+            - option "NIFTY500 MULTICAP MOMENTUM QUALITY 50"
+            - option "NIFTY QUALITY LOW-VOLATILITY 30"
+            - option "NIFTY SMALLCAP250 QUALITY 50"
+            - option "NIFTY TOTAL MARKET MOMENTUM QUALITY 50"
+            - option "NIFTY TOP 10 EQUAL WEIGHT"
+            - option "NIFTY TOP 15 EQUAL WEIGHT"
+            - option "NIFTY TOP 20 EQUAL WEIGHT"
+            - option "NIFTY100 ALPHA 30"
+            - option "NIFTY100 EQUAL WEIGHT"
+            - option "NIFTY100 LOW VOLATILITY 30"
+            - option "NIFTY100 QUALITY 30"
+            - option "NIFTY200 ALPHA 30"
+            - option "NIFTY200 QUALITY 30"
+            - option "NIFTY200 VALUE 30"
+            - option "NIFTY200 MOMENTUM 30"
+            - option "NIFTY50 EQUAL WEIGHT"
+            - option "NIFTY50 VALUE 20"
+            - option "NIFTY500 EQUAL WEIGHT"
+            - option "NIFTY500 FLEXICAP QUALITY 30"
+            - option "NIFTY500 LOW VOLATILITY 50"
+            - option "NIFTY500 MULTIFACTOR MQVLV 50"
+            - option "NIFTY500 QUALITY 50"
+            - option "NIFTY500 VALUE 50"
+            - option "NIFTY500 MOMENTUM 50"
+            - option "NIFTY MIDCAP150 MOMENTUM 50"
+            - option "NIFTY MIDSMALLCAP400 MOMENTUM QUALITY 100"
+            - option "NIFTY SMALLCAP250 MOMENTUM QUALITY 100"
+            - option "PERMITTED TO TRADE"
+            - option "SECURITIES IN F&O"
+          - link "Add a new Category Tab" [ref=e203] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - generic [ref=e208]: Normal Market is Closed As on 17-Jun-2026 16:00:00 IST
+            - link "Refresh" [ref=e210] [cursor=pointer]:
+              - /url: "#"
+              - img "Refresh" [ref=e211]
+          - list [ref=e214]:
+            - listitem [ref=e215]: Advances - 32
+            - listitem [ref=e216]: Declines - 18
+            - listitem [ref=e217]: Unchanged - 0
+          - list [ref=e220]:
+            - listitem [ref=e221]:
+              - link "csv Download (.csv)" [ref=e222] [cursor=pointer]:
+                - /url: "#"
+                - img "csv" [ref=e223]
+                - generic [ref=e224]: Download (.csv)
+        - generic [ref=e228]:
+          - generic [ref=e229]: Change denomination
+          - group "Value Convention" [ref=e230]:
+            - generic [ref=e231]:
+              - radio "Lakhs" [ref=e232]
+              - generic [ref=e233] [cursor=pointer]: Lakhs
+            - generic [ref=e234]:
+              - radio "Crores" [checked] [ref=e235]
+              - generic [ref=e236] [cursor=pointer]: Crores
+            - generic [ref=e237]:
+              - radio "Billions" [ref=e238]
+              - generic [ref=e239] [cursor=pointer]: Billions
+        - generic [ref=e242]:
+          - generic [ref=e243]: Table is now unsorted
+          - table [ref=e244]:
+            - rowgroup [ref=e245]:
+              - row "Symbol Open High Low PREV. CLOSE LTP Indicative CLose chng %Chng Volume (shares) Value (₹ Crores) 52W H 52W L 30 d %chng" [ref=e246]:
+                - columnheader "Symbol" [ref=e247]:
+                  - link "Symbol" [ref=e248] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e249]: Symbol
+                - columnheader "Open" [ref=e250]:
+                  - generic [ref=e251]: Open
+                - columnheader "High" [ref=e252]:
+                  - generic [ref=e253]: High
+                - columnheader "Low" [ref=e254]:
+                  - generic [ref=e255]: Low
+                - columnheader "PREV. CLOSE" [ref=e256]:
+                  - generic [ref=e257]: PREV. CLOSE
+                - columnheader "LTP" [ref=e258]:
+                  - link "LTP" [ref=e259] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e260]: LTP
+                - columnheader "Indicative CLose" [ref=e261]:
+                  - link "Indicative CLose" [ref=e262] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e263]: Indicative CLose
+                - columnheader "chng" [ref=e264]:
+                  - link "chng" [ref=e265] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e266]: chng
+                - columnheader "%Chng" [ref=e267]:
+                  - link "%Chng" [ref=e268] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e269]: "%Chng"
+                - columnheader "Volume (shares)" [ref=e270]:
+                  - link "Volume (shares)" [ref=e271] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e272]: Volume
+                    - generic [ref=e273]: (shares)
+                - columnheader "Value (₹ Crores)" [ref=e274]:
+                  - link "Value (₹ Crores)" [ref=e275] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [ref=e276]: Value
+                    - generic [ref=e277]: (₹ Crores)
+                - columnheader "52W H" [ref=e278]:
+                  - generic [ref=e279]: 52W H
+                - columnheader "52W L" [ref=e280]:
+                  - generic [ref=e281]: 52W L
+                - columnheader "30 d %chng" [ref=e282]:
+                  - generic [ref=e283]:
+                    - text: 30 d
+                    - text: "%chng"
+                - columnheader [ref=e284]
+            - rowgroup [ref=e285]:
+              - row "NIFTY 50 24,044.50 24,108.20 23,969.70 23,989.15 24,085.70NIFTY 50 lastPrice Arrows Down -NIFTY 50 stockIndClosePrice Arrows Down 96.55 0.40 35,26,65,809 26,947.30 26,373.20 22,182.55 1.87 graphText" [ref=e286]:
+                - cell "NIFTY 50" [ref=e287]
+                - cell "24,044.50" [ref=e288]
+                - cell "24,108.20" [ref=e289]
+                - cell "23,969.70" [ref=e290]
+                - cell "23,989.15" [ref=e291]
+                - cell "24,085.70NIFTY 50 lastPrice Arrows Down" [ref=e292]:
+                  - text: 24,085.70
+                  - img "NIFTY 50 lastPrice Arrows Down"
+                - cell "-NIFTY 50 stockIndClosePrice Arrows Down" [ref=e293]:
+                  - text: "-"
+                  - img "NIFTY 50 stockIndClosePrice Arrows Down"
+                - cell "96.55" [ref=e294]
+                - cell "0.40" [ref=e295]
+                - cell "35,26,65,809" [ref=e296]
+                - cell "26,947.30" [ref=e297]
+                - cell "26,373.20" [ref=e298]
+                - cell "22,182.55" [ref=e299]
+                - cell "1.87" [ref=e300]
+                - cell "graphText" [ref=e301]:
+                  - link "graphText" [ref=e302] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e303]
+              - row "HDFCBANK 787.65 794.30 783.10 784.90 787.00HDFCBANK lastPrice Arrows Down -HDFCBANK stockIndClosePrice Arrows Down 2.10 0.27 3,24,05,604 2,554.83 1,020.50 726.65 2.54 graphText" [ref=e304]:
+                - cell "HDFCBANK" [ref=e305]:
+                  - link "HDFCBANK" [ref=e306] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=HDFCBANK
+                - cell "787.65" [ref=e307]
+                - cell "794.30" [ref=e308]
+                - cell "783.10" [ref=e309]
+                - cell "784.90" [ref=e310]
+                - cell "787.00HDFCBANK lastPrice Arrows Down" [ref=e311]:
+                  - text: "787.00"
+                  - img "HDFCBANK lastPrice Arrows Down"
+                - cell "-HDFCBANK stockIndClosePrice Arrows Down" [ref=e312]:
+                  - text: "-"
+                  - img "HDFCBANK stockIndClosePrice Arrows Down"
+                - cell "2.10" [ref=e313]
+                - cell "0.27" [ref=e314]
+                - cell "3,24,05,604" [ref=e315]
+                - cell "2,554.83" [ref=e316]
+                - cell "1,020.50" [ref=e317]
+                - cell "726.65" [ref=e318]
+                - cell "2.54" [ref=e319]
+                - cell "graphText" [ref=e320]:
+                  - link "graphText" [ref=e321] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e322]
+              - row "TMPV 395.50 395.60 355.00 393.60 361.70TMPV lastPrice Arrows Down -TMPV stockIndClosePrice Arrows Down -31.90 -8.10 5,19,87,488 1,906.02 739.70 294.30 1.44 graphText" [ref=e323]:
+                - cell "TMPV" [ref=e324]:
+                  - link "TMPV" [ref=e325] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=TMPV
+                - cell "395.50" [ref=e326]
+                - cell "395.60" [ref=e327]
+                - cell "355.00" [ref=e328]
+                - cell "393.60" [ref=e329]
+                - cell "361.70TMPV lastPrice Arrows Down" [ref=e330]:
+                  - text: "361.70"
+                  - img "TMPV lastPrice Arrows Down"
+                - cell "-TMPV stockIndClosePrice Arrows Down" [ref=e331]:
+                  - text: "-"
+                  - img "TMPV stockIndClosePrice Arrows Down"
+                - cell "-31.90" [ref=e332]
+                - cell "-8.10" [ref=e333]
+                - cell "5,19,87,488" [ref=e334]
+                - cell "1,906.02" [ref=e335]
+                - cell "739.70" [ref=e336]
+                - cell "294.30" [ref=e337]
+                - cell "1.44" [ref=e338]
+                - cell "graphText" [ref=e339]:
+                  - link "graphText" [ref=e340] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e341]
+              - row "TRENT 2,905.00 3,115.00 2,905.00 2,897.80 3,108.00TRENT lastPrice Arrows Down -TRENT stockIndClosePrice Arrows Down 210.20 7.25 56,45,225 1,715.05 4,174.00 2,183.67 13.67 graphText" [ref=e342]:
+                - cell "TRENT" [ref=e343]:
+                  - link "TRENT" [ref=e344] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=TRENT
+                - cell "2,905.00" [ref=e345]
+                - cell "3,115.00" [ref=e346]
+                - cell "2,905.00" [ref=e347]
+                - cell "2,897.80" [ref=e348]
+                - cell "3,108.00TRENT lastPrice Arrows Down" [ref=e349]:
+                  - text: 3,108.00
+                  - img "TRENT lastPrice Arrows Down"
+                - cell "-TRENT stockIndClosePrice Arrows Down" [ref=e350]:
+                  - text: "-"
+                  - img "TRENT stockIndClosePrice Arrows Down"
+                - cell "210.20" [ref=e351]
+                - cell "7.25" [ref=e352]
+                - cell "56,45,225" [ref=e353]
+                - cell "1,715.05" [ref=e354]
+                - cell "4,174.00" [ref=e355]
+                - cell "2,183.67" [ref=e356]
+                - cell "13.67" [ref=e357]
+                - cell "graphText" [ref=e358]:
+                  - link "graphText" [ref=e359] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e360]
+              - row "BHARTIARTL 1,853.00 1,878.00 1,841.50 1,853.00 1,874.20BHARTIARTL lastPrice Arrows Down -BHARTIARTL stockIndClosePrice Arrows Down 21.20 1.14 76,53,632 1,426.44 2,174.50 1,740.50 -1.64 graphText" [ref=e361]:
+                - cell "BHARTIARTL" [ref=e362]:
+                  - link "BHARTIARTL" [ref=e363] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=BHARTIARTL
+                - cell "1,853.00" [ref=e364]
+                - cell "1,878.00" [ref=e365]
+                - cell "1,841.50" [ref=e366]
+                - cell "1,853.00" [ref=e367]
+                - cell "1,874.20BHARTIARTL lastPrice Arrows Down" [ref=e368]:
+                  - text: 1,874.20
+                  - img "BHARTIARTL lastPrice Arrows Down"
+                - cell "-BHARTIARTL stockIndClosePrice Arrows Down" [ref=e369]:
+                  - text: "-"
+                  - img "BHARTIARTL stockIndClosePrice Arrows Down"
+                - cell "21.20" [ref=e370]
+                - cell "1.14" [ref=e371]
+                - cell "76,53,632" [ref=e372]
+                - cell "1,426.44" [ref=e373]
+                - cell "2,174.50" [ref=e374]
+                - cell "1,740.50" [ref=e375]
+                - cell "-1.64" [ref=e376]
+                - cell "graphText" [ref=e377]:
+                  - link "graphText" [ref=e378] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e379]
+              - row "RELIANCE 1,333.00 1,334.00 1,317.00 1,328.80 1,332.10RELIANCE lastPrice Arrows Down -RELIANCE stockIndClosePrice Arrows Down 3.30 0.25 1,00,29,170 1,332.85 1,611.80 1,253.20 -0.32 graphText" [ref=e380]:
+                - cell "RELIANCE" [ref=e381]:
+                  - link "RELIANCE" [ref=e382] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=RELIANCE
+                - cell "1,333.00" [ref=e383]
+                - cell "1,334.00" [ref=e384]
+                - cell "1,317.00" [ref=e385]
+                - cell "1,328.80" [ref=e386]
+                - cell "1,332.10RELIANCE lastPrice Arrows Down" [ref=e387]:
+                  - text: 1,332.10
+                  - img "RELIANCE lastPrice Arrows Down"
+                - cell "-RELIANCE stockIndClosePrice Arrows Down" [ref=e389]:
+                  - text: "-"
+                  - img "RELIANCE stockIndClosePrice Arrows Down"
+                - cell "3.30" [ref=e390]
+                - cell "0.25" [ref=e391]
+                - cell "1,00,29,170" [ref=e392]
+                - cell "1,332.85" [ref=e393]
+                - cell "1,611.80" [ref=e394]
+                - cell "1,253.20" [ref=e395]
+                - cell "-0.32" [ref=e396]
+                - cell "graphText" [ref=e397]:
+                  - link "graphText" [ref=e398] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e399]
+              - row "HINDALCO 985.00 1,011.60 971.20 982.40 1,008.90HINDALCO lastPrice Arrows Down -HINDALCO stockIndClosePrice Arrows Down 26.50 2.70 1,08,53,418 1,079.13 1,176.00 635.00 -5.49 graphText" [ref=e400]:
+                - cell "HINDALCO" [ref=e401]:
+                  - link "HINDALCO" [ref=e402] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=HINDALCO
+                - cell "985.00" [ref=e403]
+                - cell "1,011.60" [ref=e404]
+                - cell "971.20" [ref=e405]
+                - cell "982.40" [ref=e406]
+                - cell "1,008.90HINDALCO lastPrice Arrows Down" [ref=e407]:
+                  - text: 1,008.90
+                  - img "HINDALCO lastPrice Arrows Down"
+                - cell "-HINDALCO stockIndClosePrice Arrows Down" [ref=e408]:
+                  - text: "-"
+                  - img "HINDALCO stockIndClosePrice Arrows Down"
+                - cell "26.50" [ref=e409]
+                - cell "2.70" [ref=e410]
+                - cell "1,08,53,418" [ref=e411]
+                - cell "1,079.13" [ref=e412]
+                - cell "1,176.00" [ref=e413]
+                - cell "635.00" [ref=e414]
+                - cell "-5.49" [ref=e415]
+                - cell "graphText" [ref=e416]:
+                  - link "graphText" [ref=e417] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e418]
+              - row "ICICIBANK 1,342.00 1,346.00 1,333.40 1,334.30 1,336.50ICICIBANK lastPrice Arrows Down -ICICIBANK stockIndClosePrice Arrows Down 2.20 0.16 80,26,424 1,074.45 1,500.00 1,187.60 7.39 graphText" [ref=e419]:
+                - cell "ICICIBANK" [ref=e420]:
+                  - link "ICICIBANK" [ref=e421] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ICICIBANK
+                - cell "1,342.00" [ref=e422]
+                - cell "1,346.00" [ref=e423]
+                - cell "1,333.40" [ref=e424]
+                - cell "1,334.30" [ref=e425]
+                - cell "1,336.50ICICIBANK lastPrice Arrows Down" [ref=e426]:
+                  - text: 1,336.50
+                  - img "ICICIBANK lastPrice Arrows Down"
+                - cell "-ICICIBANK stockIndClosePrice Arrows Down" [ref=e427]:
+                  - text: "-"
+                  - img "ICICIBANK stockIndClosePrice Arrows Down"
+                - cell "2.20" [ref=e428]
+                - cell "0.16" [ref=e429]
+                - cell "80,26,424" [ref=e430]
+                - cell "1,074.45" [ref=e431]
+                - cell "1,500.00" [ref=e432]
+                - cell "1,187.60" [ref=e433]
+                - cell "7.39" [ref=e434]
+                - cell "graphText" [ref=e435]:
+                  - link "graphText" [ref=e436] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e437]
+              - row "BEL 407.00 422.40 406.15 407.55 422.00BEL lastPrice Arrows Down -BEL stockIndClosePrice Arrows Down 14.45 3.55 2,45,06,595 1,015.46 473.45 361.20 -0.39 graphText" [ref=e438]:
+                - cell "BEL" [ref=e439]:
+                  - link "BEL" [ref=e440] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=BEL
+                - cell "407.00" [ref=e441]
+                - cell "422.40" [ref=e442]
+                - cell "406.15" [ref=e443]
+                - cell "407.55" [ref=e444]
+                - cell "422.00BEL lastPrice Arrows Down" [ref=e445]:
+                  - text: "422.00"
+                  - img "BEL lastPrice Arrows Down"
+                - cell "-BEL stockIndClosePrice Arrows Down" [ref=e446]:
+                  - text: "-"
+                  - img "BEL stockIndClosePrice Arrows Down"
+                - cell "14.45" [ref=e447]
+                - cell "3.55" [ref=e448]
+                - cell "2,45,06,595" [ref=e449]
+                - cell "1,015.46" [ref=e450]
+                - cell "473.45" [ref=e451]
+                - cell "361.20" [ref=e452]
+                - cell "-0.39" [ref=e453]
+                - cell "graphText" [ref=e454]:
+                  - link "graphText" [ref=e455] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e456]
+              - row "M&M 3,145.00 3,165.00 3,090.00 3,137.90 3,132.00M&M lastPrice Arrows Down -M&M stockIndClosePrice Arrows Down -5.90 -0.19 31,86,836 998.02 3,839.90 2,896.00 0.28 graphText" [ref=e457]:
+                - cell "M&M" [ref=e458]:
+                  - link "M&M" [ref=e459] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=M%26M
+                - cell "3,145.00" [ref=e460]
+                - cell "3,165.00" [ref=e461]
+                - cell "3,090.00" [ref=e462]
+                - cell "3,137.90" [ref=e463]
+                - cell "3,132.00M&M lastPrice Arrows Down" [ref=e464]:
+                  - text: 3,132.00
+                  - img "M&M lastPrice Arrows Down"
+                - cell "-M&M stockIndClosePrice Arrows Down" [ref=e465]:
+                  - text: "-"
+                  - img "M&M stockIndClosePrice Arrows Down"
+                - cell "-5.90" [ref=e466]
+                - cell "-0.19" [ref=e467]
+                - cell "31,86,836" [ref=e468]
+                - cell "998.02" [ref=e469]
+                - cell "3,839.90" [ref=e470]
+                - cell "2,896.00" [ref=e471]
+                - cell "0.28" [ref=e472]
+                - cell "graphText" [ref=e473]:
+                  - link "graphText" [ref=e474] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e475]
+              - row "ETERNAL 254.00 262.50 253.20 253.60 257.85ETERNAL lastPrice Arrows Down -ETERNAL stockIndClosePrice Arrows Down 4.25 1.68 3,31,96,297 860.91 368.45 212.60 6.91 graphText" [ref=e476]:
+                - cell "ETERNAL" [ref=e477]:
+                  - link "ETERNAL" [ref=e478] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ETERNAL
+                - cell "254.00" [ref=e479]
+                - cell "262.50" [ref=e480]
+                - cell "253.20" [ref=e481]
+                - cell "253.60" [ref=e482]
+                - cell "257.85ETERNAL lastPrice Arrows Down" [ref=e483]:
+                  - text: "257.85"
+                  - img "ETERNAL lastPrice Arrows Down"
+                - cell "-ETERNAL stockIndClosePrice Arrows Down" [ref=e484]:
+                  - text: "-"
+                  - img "ETERNAL stockIndClosePrice Arrows Down"
+                - cell "4.25" [ref=e485]
+                - cell "1.68" [ref=e486]
+                - cell "3,31,96,297" [ref=e487]
+                - cell "860.91" [ref=e488]
+                - cell "368.45" [ref=e489]
+                - cell "212.60" [ref=e490]
+                - cell "6.91" [ref=e491]
+                - cell "graphText" [ref=e492]:
+                  - link "graphText" [ref=e493] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e494]
+              - row "SBIN 1,017.00 1,028.10 1,013.45 1,015.30 1,026.50SBIN lastPrice Arrows Down -SBIN stockIndClosePrice Arrows Down 11.20 1.10 81,90,062 836.23 1,234.70 781.70 6.57 graphText" [ref=e495]:
+                - cell "SBIN" [ref=e496]:
+                  - link "SBIN" [ref=e497] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=SBIN
+                - cell "1,017.00" [ref=e498]
+                - cell "1,028.10" [ref=e499]
+                - cell "1,013.45" [ref=e500]
+                - cell "1,015.30" [ref=e501]
+                - cell "1,026.50SBIN lastPrice Arrows Down" [ref=e502]:
+                  - text: 1,026.50
+                  - img "SBIN lastPrice Arrows Down"
+                - cell "-SBIN stockIndClosePrice Arrows Down" [ref=e503]:
+                  - text: "-"
+                  - img "SBIN stockIndClosePrice Arrows Down"
+                - cell "11.20" [ref=e504]
+                - cell "1.10" [ref=e505]
+                - cell "81,90,062" [ref=e506]
+                - cell "836.23" [ref=e507]
+                - cell "1,234.70" [ref=e508]
+                - cell "781.70" [ref=e509]
+                - cell "6.57" [ref=e510]
+                - cell "graphText" [ref=e511]:
+                  - link "graphText" [ref=e512] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e513]
+              - row "INFY 1,149.00 1,162.50 1,148.00 1,143.60 1,156.00INFY lastPrice Arrows Down -INFY stockIndClosePrice Arrows Down 12.40 1.08 59,95,119 693.86 1,728.00 1,089.00 3.31 graphText" [ref=e514]:
+                - cell "INFY" [ref=e515]:
+                  - link "INFY" [ref=e516] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=INFY
+                - cell "1,149.00" [ref=e517]
+                - cell "1,162.50" [ref=e518]
+                - cell "1,148.00" [ref=e519]
+                - cell "1,143.60" [ref=e520]
+                - cell "1,156.00INFY lastPrice Arrows Down" [ref=e521]:
+                  - text: 1,156.00
+                  - img "INFY lastPrice Arrows Down"
+                - cell "-INFY stockIndClosePrice Arrows Down" [ref=e523]:
+                  - text: "-"
+                  - img "INFY stockIndClosePrice Arrows Down"
+                - cell "12.40" [ref=e524]
+                - cell "1.08" [ref=e525]
+                - cell "59,95,119" [ref=e526]
+                - cell "693.86" [ref=e527]
+                - cell "1,728.00" [ref=e528]
+                - cell "1,089.00" [ref=e529]
+                - cell "3.31" [ref=e530]
+                - cell "graphText" [ref=e531]:
+                  - link "graphText" [ref=e532] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e533]
+              - row "AXISBANK 1,364.10 1,365.70 1,349.30 1,365.70 1,351.90AXISBANK lastPrice Arrows Up -AXISBANK stockIndClosePrice Arrows Up -13.80 -1.01 47,61,917 645.19 1,418.30 1,042.50 8.60 graphText" [ref=e534]:
+                - cell "AXISBANK" [ref=e535]:
+                  - link "AXISBANK" [ref=e536] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=AXISBANK
+                - cell "1,364.10" [ref=e537]
+                - cell "1,365.70" [ref=e538]
+                - cell "1,349.30" [ref=e539]
+                - cell "1,365.70" [ref=e540]
+                - cell "1,351.90AXISBANK lastPrice Arrows Up" [ref=e541]:
+                  - text: 1,351.90
+                  - img "AXISBANK lastPrice Arrows Up"
+                - cell "-AXISBANK stockIndClosePrice Arrows Up" [ref=e544]:
+                  - text: "-"
+                  - img "AXISBANK stockIndClosePrice Arrows Up"
+                - cell "-13.80" [ref=e545]
+                - cell "-1.01" [ref=e546]
+                - cell "47,61,917" [ref=e547]
+                - cell "645.19" [ref=e548]
+                - cell "1,418.30" [ref=e549]
+                - cell "1,042.50" [ref=e550]
+                - cell "8.60" [ref=e551]
+                - cell "graphText" [ref=e552]:
+                  - link "graphText" [ref=e553] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e554]
+              - row "TCS 2,209.00 2,231.00 2,200.70 2,199.00 2,221.00TCS lastPrice Arrows Down -TCS stockIndClosePrice Arrows Down 22.00 1.00 28,65,010 636.15 3,538.00 2,110.00 -1.90 graphText" [ref=e555]:
+                - cell "TCS" [ref=e556]:
+                  - link "TCS" [ref=e557] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=TCS
+                - cell "2,209.00" [ref=e558]
+                - cell "2,231.00" [ref=e559]
+                - cell "2,200.70" [ref=e560]
+                - cell "2,199.00" [ref=e561]
+                - cell "2,221.00TCS lastPrice Arrows Down" [ref=e562]:
+                  - text: 2,221.00
+                  - img "TCS lastPrice Arrows Down"
+                - cell "-TCS stockIndClosePrice Arrows Down" [ref=e564]:
+                  - text: "-"
+                  - img "TCS stockIndClosePrice Arrows Down"
+                - cell "22.00" [ref=e565]
+                - cell "1.00" [ref=e566]
+                - cell "28,65,010" [ref=e567]
+                - cell "636.15" [ref=e568]
+                - cell "3,538.00" [ref=e569]
+                - cell "2,110.00" [ref=e570]
+                - cell "-1.90" [ref=e571]
+                - cell "graphText" [ref=e572]:
+                  - link "graphText" [ref=e573] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e574]
+              - row "LT 4,200.10 4,214.70 4,172.00 4,186.40 4,205.00LT lastPrice Arrows Up -LT stockIndClosePrice Arrows Up 18.60 0.44 13,12,925 551.13 4,440.00 3,288.10 7.57 graphText" [ref=e575]:
+                - cell "LT" [ref=e576]:
+                  - link "LT" [ref=e577] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=LT
+                - cell "4,200.10" [ref=e578]
+                - cell "4,214.70" [ref=e579]
+                - cell "4,172.00" [ref=e580]
+                - cell "4,186.40" [ref=e581]
+                - cell "4,205.00LT lastPrice Arrows Up" [ref=e582]:
+                  - text: 4,205.00
+                  - img "LT lastPrice Arrows Up"
+                - cell "-LT stockIndClosePrice Arrows Up" [ref=e584]:
+                  - text: "-"
+                  - img "LT stockIndClosePrice Arrows Up"
+                - cell "18.60" [ref=e585]
+                - cell "0.44" [ref=e586]
+                - cell "13,12,925" [ref=e587]
+                - cell "551.13" [ref=e588]
+                - cell "4,440.00" [ref=e589]
+                - cell "3,288.10" [ref=e590]
+                - cell "7.57" [ref=e591]
+                - cell "graphText" [ref=e592]:
+                  - link "graphText" [ref=e593] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e594]
+              - row "BAJFINANCE 955.10 961.80 951.55 959.65 958.50BAJFINANCE lastPrice Arrows Down -BAJFINANCE stockIndClosePrice Arrows Down -1.15 -0.12 56,82,977 544.17 1,102.50 787.90 5.28 graphText" [ref=e595]:
+                - cell "BAJFINANCE" [ref=e596]:
+                  - link "BAJFINANCE" [ref=e597] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=BAJFINANCE
+                - cell "955.10" [ref=e598]
+                - cell "961.80" [ref=e599]
+                - cell "951.55" [ref=e600]
+                - cell "959.65" [ref=e601]
+                - cell "958.50BAJFINANCE lastPrice Arrows Down" [ref=e602]:
+                  - text: "958.50"
+                  - img "BAJFINANCE lastPrice Arrows Down"
+                - cell "-BAJFINANCE stockIndClosePrice Arrows Down" [ref=e603]:
+                  - text: "-"
+                  - img "BAJFINANCE stockIndClosePrice Arrows Down"
+                - cell "-1.15" [ref=e604]
+                - cell "-0.12" [ref=e605]
+                - cell "56,82,977" [ref=e606]
+                - cell "544.17" [ref=e607]
+                - cell "1,102.50" [ref=e608]
+                - cell "787.90" [ref=e609]
+                - cell "5.28" [ref=e610]
+                - cell "graphText" [ref=e611]:
+                  - link "graphText" [ref=e612] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e613]
+              - row "ADANIPORTS 1,824.00 1,833.00 1,806.30 1,822.00 1,825.00ADANIPORTS lastPrice Arrows Up -ADANIPORTS stockIndClosePrice Arrows Up 3.00 0.16 26,97,924 490.04 1,857.80 1,290.50 1.67 graphText" [ref=e614]:
+                - cell "ADANIPORTS" [ref=e615]:
+                  - link "ADANIPORTS" [ref=e616] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ADANIPORTS
+                - cell "1,824.00" [ref=e617]
+                - cell "1,833.00" [ref=e618]
+                - cell "1,806.30" [ref=e619]
+                - cell "1,822.00" [ref=e620]
+                - cell "1,825.00ADANIPORTS lastPrice Arrows Up" [ref=e621]:
+                  - text: 1,825.00
+                  - img "ADANIPORTS lastPrice Arrows Up"
+                - cell "-ADANIPORTS stockIndClosePrice Arrows Up" [ref=e625]:
+                  - text: "-"
+                  - img "ADANIPORTS stockIndClosePrice Arrows Up"
+                - cell "3.00" [ref=e626]
+                - cell "0.16" [ref=e627]
+                - cell "26,97,924" [ref=e628]
+                - cell "490.04" [ref=e629]
+                - cell "1,857.80" [ref=e630]
+                - cell "1,290.50" [ref=e631]
+                - cell "1.67" [ref=e632]
+                - cell "graphText" [ref=e633]:
+                  - link "graphText" [ref=e634] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e635]
+              - row "KOTAKBANK 407.85 408.75 402.55 407.85 404.00KOTAKBANK lastPrice Arrows Down -KOTAKBANK stockIndClosePrice Arrows Down -3.85 -0.94 1,16,54,415 471.32 453.20 345.50 4.38 graphText" [ref=e636]:
+                - cell "KOTAKBANK" [ref=e637]:
+                  - link "KOTAKBANK" [ref=e638] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=KOTAKBANK
+                - cell "407.85" [ref=e639]
+                - cell "408.75" [ref=e640]
+                - cell "402.55" [ref=e641]
+                - cell "407.85" [ref=e642]
+                - cell "404.00KOTAKBANK lastPrice Arrows Down" [ref=e643]:
+                  - text: "404.00"
+                  - img "KOTAKBANK lastPrice Arrows Down"
+                - cell "-KOTAKBANK stockIndClosePrice Arrows Down" [ref=e644]:
+                  - text: "-"
+                  - img "KOTAKBANK stockIndClosePrice Arrows Down"
+                - cell "-3.85" [ref=e645]
+                - cell "-0.94" [ref=e646]
+                - cell "1,16,54,415" [ref=e647]
+                - cell "471.32" [ref=e648]
+                - cell "453.20" [ref=e649]
+                - cell "345.50" [ref=e650]
+                - cell "4.38" [ref=e651]
+                - cell "graphText" [ref=e652]:
+                  - link "graphText" [ref=e653] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e654]
+              - row "TATASTEEL 196.79 199.50 195.60 196.00 198.83TATASTEEL lastPrice Arrows Down -TATASTEEL stockIndClosePrice Arrows Down 2.83 1.44 2,24,91,220 445.39 224.40 149.80 -8.31 graphText" [ref=e655]:
+                - cell "TATASTEEL" [ref=e656]:
+                  - link "TATASTEEL" [ref=e657] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=TATASTEEL
+                - cell "196.79" [ref=e658]
+                - cell "199.50" [ref=e659]
+                - cell "195.60" [ref=e660]
+                - cell "196.00" [ref=e661]
+                - cell "198.83TATASTEEL lastPrice Arrows Down" [ref=e662]:
+                  - text: "198.83"
+                  - img "TATASTEEL lastPrice Arrows Down"
+                - cell "-TATASTEEL stockIndClosePrice Arrows Down" [ref=e663]:
+                  - text: "-"
+                  - img "TATASTEEL stockIndClosePrice Arrows Down"
+                - cell "2.83" [ref=e664]
+                - cell "1.44" [ref=e665]
+                - cell "2,24,91,220" [ref=e666]
+                - cell "445.39" [ref=e667]
+                - cell "224.40" [ref=e668]
+                - cell "149.80" [ref=e669]
+                - cell "-8.31" [ref=e670]
+                - cell "graphText" [ref=e671]:
+                  - link "graphText" [ref=e672] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e673]
+              - row "SHRIRAMFIN 1,005.00 1,015.75 1,001.95 1,005.75 1,005.00SHRIRAMFIN lastPrice Arrows Down -SHRIRAMFIN stockIndClosePrice Arrows Down -0.75 -0.07 43,53,419 439.35 1,108.00 566.50 7.15 graphText" [ref=e674]:
+                - cell "SHRIRAMFIN" [ref=e675]:
+                  - link "SHRIRAMFIN" [ref=e676] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=SHRIRAMFIN
+                - cell "1,005.00" [ref=e677]
+                - cell "1,015.75" [ref=e678]
+                - cell "1,001.95" [ref=e679]
+                - cell "1,005.75" [ref=e680]
+                - cell "1,005.00SHRIRAMFIN lastPrice Arrows Down" [ref=e681]:
+                  - text: 1,005.00
+                  - img "SHRIRAMFIN lastPrice Arrows Down"
+                - cell "-SHRIRAMFIN stockIndClosePrice Arrows Down" [ref=e682]:
+                  - text: "-"
+                  - img "SHRIRAMFIN stockIndClosePrice Arrows Down"
+                - cell "-0.75" [ref=e683]
+                - cell "-0.07" [ref=e684]
+                - cell "43,53,419" [ref=e685]
+                - cell "439.35" [ref=e686]
+                - cell "1,108.00" [ref=e687]
+                - cell "566.50" [ref=e688]
+                - cell "7.15" [ref=e689]
+                - cell "graphText" [ref=e690]:
+                  - link "graphText" [ref=e691] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e692]
+              - row "INDIGO 4,876.40 4,899.00 4,840.00 4,840.00 4,885.00INDIGO lastPrice Arrows Down -INDIGO stockIndClosePrice Arrows Down 45.00 0.93 8,71,600 424.46 6,232.50 3,895.20 13.21 graphText" [ref=e693]:
+                - cell "INDIGO" [ref=e694]:
+                  - link "INDIGO" [ref=e695] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=INDIGO
+                - cell "4,876.40" [ref=e696]
+                - cell "4,899.00" [ref=e697]
+                - cell "4,840.00" [ref=e698]
+                - cell "4,840.00" [ref=e699]
+                - cell "4,885.00INDIGO lastPrice Arrows Down" [ref=e700]:
+                  - text: 4,885.00
+                  - img "INDIGO lastPrice Arrows Down"
+                - cell "-INDIGO stockIndClosePrice Arrows Down" [ref=e701]:
+                  - text: "-"
+                  - img "INDIGO stockIndClosePrice Arrows Down"
+                - cell "45.00" [ref=e702]
+                - cell "0.93" [ref=e703]
+                - cell "8,71,600" [ref=e704]
+                - cell "424.46" [ref=e705]
+                - cell "6,232.50" [ref=e706]
+                - cell "3,895.20" [ref=e707]
+                - cell "13.21" [ref=e708]
+                - cell "graphText" [ref=e709]:
+                  - link "graphText" [ref=e710] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e711]
+              - row "COALINDIA 450.90 461.55 448.60 450.95 455.95COALINDIA lastPrice Arrows Down -COALINDIA stockIndClosePrice Arrows Down 5.00 1.11 90,64,734 412.94 491.25 368.65 -1.35 graphText" [ref=e712]:
+                - cell "COALINDIA" [ref=e713]:
+                  - link "COALINDIA" [ref=e714] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=COALINDIA
+                - cell "450.90" [ref=e715]
+                - cell "461.55" [ref=e716]
+                - cell "448.60" [ref=e717]
+                - cell "450.95" [ref=e718]
+                - cell "455.95COALINDIA lastPrice Arrows Down" [ref=e719]:
+                  - text: "455.95"
+                  - img "COALINDIA lastPrice Arrows Down"
+                - cell "-COALINDIA stockIndClosePrice Arrows Down" [ref=e720]:
+                  - text: "-"
+                  - img "COALINDIA stockIndClosePrice Arrows Down"
+                - cell "5.00" [ref=e721]
+                - cell "1.11" [ref=e722]
+                - cell "90,64,734" [ref=e723]
+                - cell "412.94" [ref=e724]
+                - cell "491.25" [ref=e725]
+                - cell "368.65" [ref=e726]
+                - cell "-1.35" [ref=e727]
+                - cell "graphText" [ref=e728]:
+                  - link "graphText" [ref=e729] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e730]
+              - row "ADANIENT 2,958.00 2,974.50 2,934.60 2,943.60 2,948.90ADANIENT lastPrice Arrows Up -ADANIENT stockIndClosePrice Arrows Up 5.30 0.18 12,44,567 367.32 3,059.80 1,753.00 8.58 graphText" [ref=e731]:
+                - cell "ADANIENT" [ref=e732]:
+                  - link "ADANIENT" [ref=e733] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ADANIENT
+                - cell "2,958.00" [ref=e734]
+                - cell "2,974.50" [ref=e735]
+                - cell "2,934.60" [ref=e736]
+                - cell "2,943.60" [ref=e737]
+                - cell "2,948.90ADANIENT lastPrice Arrows Up" [ref=e738]:
+                  - text: 2,948.90
+                  - img "ADANIENT lastPrice Arrows Up"
+                - cell "-ADANIENT stockIndClosePrice Arrows Up" [ref=e741]:
+                  - text: "-"
+                  - img "ADANIENT stockIndClosePrice Arrows Up"
+                - cell "5.30" [ref=e742]
+                - cell "0.18" [ref=e743]
+                - cell "12,44,567" [ref=e744]
+                - cell "367.32" [ref=e745]
+                - cell "3,059.80" [ref=e746]
+                - cell "1,753.00" [ref=e747]
+                - cell "8.58" [ref=e748]
+                - cell "graphText" [ref=e749]:
+                  - link "graphText" [ref=e750] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e751]
+              - row "HINDUNILVR 2,201.10 2,224.60 2,183.00 2,199.90 2,199.30HINDUNILVR lastPrice Arrows Down -HINDUNILVR stockIndClosePrice Arrows Down -0.60 -0.03 15,11,401 332.71 2,750.00 2,022.50 -3.21 graphText" [ref=e752]:
+                - cell "HINDUNILVR" [ref=e753]:
+                  - link "HINDUNILVR" [ref=e754] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=HINDUNILVR
+                - cell "2,201.10" [ref=e755]
+                - cell "2,224.60" [ref=e756]
+                - cell "2,183.00" [ref=e757]
+                - cell "2,199.90" [ref=e758]
+                - cell "2,199.30HINDUNILVR lastPrice Arrows Down" [ref=e759]:
+                  - text: 2,199.30
+                  - img "HINDUNILVR lastPrice Arrows Down"
+                - cell "-HINDUNILVR stockIndClosePrice Arrows Down" [ref=e760]:
+                  - text: "-"
+                  - img "HINDUNILVR stockIndClosePrice Arrows Down"
+                - cell "-0.60" [ref=e761]
+                - cell "-0.03" [ref=e762]
+                - cell "15,11,401" [ref=e763]
+                - cell "332.71" [ref=e764]
+                - cell "2,750.00" [ref=e765]
+                - cell "2,022.50" [ref=e766]
+                - cell "-3.21" [ref=e767]
+                - cell "graphText" [ref=e768]:
+                  - link "graphText" [ref=e769] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e770]
+              - row "MARUTI 13,700.00 13,740.00 13,560.00 13,691.00 13,633.00MARUTI lastPrice Arrows Down -MARUTI stockIndClosePrice Arrows Down -58.00 -0.42 2,41,534 329.66 17,370.00 12,176.00 3.12 graphText" [ref=e771]:
+                - cell "MARUTI" [ref=e772]:
+                  - link "MARUTI" [ref=e773] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=MARUTI
+                - cell "13,700.00" [ref=e774]
+                - cell "13,740.00" [ref=e775]
+                - cell "13,560.00" [ref=e776]
+                - cell "13,691.00" [ref=e777]
+                - cell "13,633.00MARUTI lastPrice Arrows Down" [ref=e778]:
+                  - text: 13,633.00
+                  - img "MARUTI lastPrice Arrows Down"
+                - cell "-MARUTI stockIndClosePrice Arrows Down" [ref=e779]:
+                  - text: "-"
+                  - img "MARUTI stockIndClosePrice Arrows Down"
+                - cell "-58.00" [ref=e780]
+                - cell "-0.42" [ref=e781]
+                - cell "2,41,534" [ref=e782]
+                - cell "329.66" [ref=e783]
+                - cell "17,370.00" [ref=e784]
+                - cell "12,176.00" [ref=e785]
+                - cell "3.12" [ref=e786]
+                - cell "graphText" [ref=e787]:
+                  - link "graphText" [ref=e788] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e789]
+              - row "NTPC 355.55 356.05 352.05 355.55 355.50NTPC lastPrice Arrows Down -NTPC stockIndClosePrice Arrows Down -0.05 -0.01 92,99,676 329.10 414.40 315.55 -10.06 graphText" [ref=e790]:
+                - cell "NTPC" [ref=e791]:
+                  - link "NTPC" [ref=e792] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=NTPC
+                - cell "355.55" [ref=e793]
+                - cell "356.05" [ref=e794]
+                - cell "352.05" [ref=e795]
+                - cell "355.55" [ref=e796]
+                - cell "355.50NTPC lastPrice Arrows Down" [ref=e797]:
+                  - text: "355.50"
+                  - img "NTPC lastPrice Arrows Down"
+                - cell "-NTPC stockIndClosePrice Arrows Down" [ref=e798]:
+                  - text: "-"
+                  - img "NTPC stockIndClosePrice Arrows Down"
+                - cell "-0.05" [ref=e799]
+                - cell "-0.01" [ref=e800]
+                - cell "92,99,676" [ref=e801]
+                - cell "329.10" [ref=e802]
+                - cell "414.40" [ref=e803]
+                - cell "315.55" [ref=e804]
+                - cell "-10.06" [ref=e805]
+                - cell "graphText" [ref=e806]:
+                  - link "graphText" [ref=e807] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e808]
+              - row "SUNPHARMA 1,814.00 1,823.40 1,802.60 1,800.70 1,821.00SUNPHARMA lastPrice Arrows Up -SUNPHARMA stockIndClosePrice Arrows Up 20.30 1.13 17,71,990 321.67 1,916.60 1,548.00 -3.05 graphText" [ref=e809]:
+                - cell "SUNPHARMA" [ref=e810]:
+                  - link "SUNPHARMA" [ref=e811] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=SUNPHARMA
+                - cell "1,814.00" [ref=e812]
+                - cell "1,823.40" [ref=e813]
+                - cell "1,802.60" [ref=e814]
+                - cell "1,800.70" [ref=e815]
+                - cell "1,821.00SUNPHARMA lastPrice Arrows Up" [ref=e816]:
+                  - text: 1,821.00
+                  - img "SUNPHARMA lastPrice Arrows Up"
+                - cell "-SUNPHARMA stockIndClosePrice Arrows Up" [ref=e819]:
+                  - text: "-"
+                  - img "SUNPHARMA stockIndClosePrice Arrows Up"
+                - cell "20.30" [ref=e820]
+                - cell "1.13" [ref=e821]
+                - cell "17,71,990" [ref=e822]
+                - cell "321.67" [ref=e823]
+                - cell "1,916.60" [ref=e824]
+                - cell "1,548.00" [ref=e825]
+                - cell "-3.05" [ref=e826]
+                - cell "graphText" [ref=e827]:
+                  - link "graphText" [ref=e828] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e829]
+              - row "ONGC 246.00 247.75 244.00 248.20 245.45ONGC lastPrice Arrows Down -ONGC stockIndClosePrice Arrows Down -2.75 -1.11 1,28,16,262 314.47 307.50 228.61 -18.01 graphText" [ref=e830]:
+                - cell "ONGC" [ref=e831]:
+                  - link "ONGC" [ref=e832] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ONGC
+                - cell "246.00" [ref=e833]
+                - cell "247.75" [ref=e834]
+                - cell "244.00" [ref=e835]
+                - cell "248.20" [ref=e836]
+                - cell "245.45ONGC lastPrice Arrows Down" [ref=e837]:
+                  - text: "245.45"
+                  - img "ONGC lastPrice Arrows Down"
+                - cell "-ONGC stockIndClosePrice Arrows Down" [ref=e838]:
+                  - text: "-"
+                  - img "ONGC stockIndClosePrice Arrows Down"
+                - cell "-2.75" [ref=e839]
+                - cell "-1.11" [ref=e840]
+                - cell "1,28,16,262" [ref=e841]
+                - cell "314.47" [ref=e842]
+                - cell "307.50" [ref=e843]
+                - cell "228.61" [ref=e844]
+                - cell "-18.01" [ref=e845]
+                - cell "graphText" [ref=e846]:
+                  - link "graphText" [ref=e847] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e848]
+              - row "TECHM 1,455.00 1,476.80 1,454.00 1,446.80 1,457.60TECHM lastPrice Arrows Down -TECHM stockIndClosePrice Arrows Down 10.80 0.75 21,26,833 311.83 1,854.00 1,304.10 6.36 graphText" [ref=e849]:
+                - cell "TECHM" [ref=e850]:
+                  - link "TECHM" [ref=e851] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=TECHM
+                - cell "1,455.00" [ref=e852]
+                - cell "1,476.80" [ref=e853]
+                - cell "1,454.00" [ref=e854]
+                - cell "1,446.80" [ref=e855]
+                - cell "1,457.60TECHM lastPrice Arrows Down" [ref=e856]:
+                  - text: 1,457.60
+                  - img "TECHM lastPrice Arrows Down"
+                - cell "-TECHM stockIndClosePrice Arrows Down" [ref=e857]:
+                  - text: "-"
+                  - img "TECHM stockIndClosePrice Arrows Down"
+                - cell "10.80" [ref=e858]
+                - cell "0.75" [ref=e859]
+                - cell "21,26,833" [ref=e860]
+                - cell "311.83" [ref=e861]
+                - cell "1,854.00" [ref=e862]
+                - cell "1,304.10" [ref=e863]
+                - cell "6.36" [ref=e864]
+                - cell "graphText" [ref=e865]:
+                  - link "graphText" [ref=e866] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e867]
+              - row "EICHERMOT 7,560.50 7,578.50 7,452.50 7,560.50 7,510.00EICHERMOT lastPrice Arrows Down -EICHERMOT stockIndClosePrice Arrows Down -50.50 -0.67 4,04,085 303.78 8,230.00 5,219.50 7.06 graphText" [ref=e868]:
+                - cell "EICHERMOT" [ref=e869]:
+                  - link "EICHERMOT" [ref=e870] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=EICHERMOT
+                - cell "7,560.50" [ref=e871]
+                - cell "7,578.50" [ref=e872]
+                - cell "7,452.50" [ref=e873]
+                - cell "7,560.50" [ref=e874]
+                - cell "7,510.00EICHERMOT lastPrice Arrows Down" [ref=e875]:
+                  - text: 7,510.00
+                  - img "EICHERMOT lastPrice Arrows Down"
+                - cell "-EICHERMOT stockIndClosePrice Arrows Down" [ref=e876]:
+                  - text: "-"
+                  - img "EICHERMOT stockIndClosePrice Arrows Down"
+                - cell "-50.50" [ref=e877]
+                - cell "-0.67" [ref=e878]
+                - cell "4,04,085" [ref=e879]
+                - cell "303.78" [ref=e880]
+                - cell "8,230.00" [ref=e881]
+                - cell "5,219.50" [ref=e882]
+                - cell "7.06" [ref=e883]
+                - cell "graphText" [ref=e884]:
+                  - link "graphText" [ref=e885] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e886]
+              - row "BAJAJ-AUTO 9,980.00 10,074.00 9,932.00 9,939.00 10,024.00BAJAJ-AUTO lastPrice Arrows Down -BAJAJ-AUTO stockIndClosePrice Arrows Down 85.00 0.86 3,02,387 302.23 10,834.00 7,858.50 -3.41 graphText" [ref=e887]:
+                - cell "BAJAJ-AUTO" [ref=e888]:
+                  - link "BAJAJ-AUTO" [ref=e889] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=BAJAJ-AUTO
+                - cell "9,980.00" [ref=e890]
+                - cell "10,074.00" [ref=e891]
+                - cell "9,932.00" [ref=e892]
+                - cell "9,939.00" [ref=e893]
+                - cell "10,024.00BAJAJ-AUTO lastPrice Arrows Down" [ref=e894]:
+                  - text: 10,024.00
+                  - img "BAJAJ-AUTO lastPrice Arrows Down"
+                - cell "-BAJAJ-AUTO stockIndClosePrice Arrows Down" [ref=e895]:
+                  - text: "-"
+                  - img "BAJAJ-AUTO stockIndClosePrice Arrows Down"
+                - cell "85.00" [ref=e896]
+                - cell "0.86" [ref=e897]
+                - cell "3,02,387" [ref=e898]
+                - cell "302.23" [ref=e899]
+                - cell "10,834.00" [ref=e900]
+                - cell "7,858.50" [ref=e901]
+                - cell "-3.41" [ref=e902]
+                - cell "graphText" [ref=e903]:
+                  - link "graphText" [ref=e904] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e905]
+              - row "WIPRO 184.00 185.25 183.58 182.67 184.30WIPRO lastPrice Arrows Down -WIPRO stockIndClosePrice Arrows Down 1.63 0.89 1,61,31,548 297.69 273.10 175.83 -3.00 graphText" [ref=e906]:
+                - cell "WIPRO" [ref=e907]:
+                  - link "WIPRO" [ref=e908] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=WIPRO
+                - cell "184.00" [ref=e909]
+                - cell "185.25" [ref=e910]
+                - cell "183.58" [ref=e911]
+                - cell "182.67" [ref=e912]
+                - cell "184.30WIPRO lastPrice Arrows Down" [ref=e913]:
+                  - text: "184.30"
+                  - img "WIPRO lastPrice Arrows Down"
+                - cell "-WIPRO stockIndClosePrice Arrows Down" [ref=e916]:
+                  - text: "-"
+                  - img "WIPRO stockIndClosePrice Arrows Down"
+                - cell "1.63" [ref=e917]
+                - cell "0.89" [ref=e918]
+                - cell "1,61,31,548" [ref=e919]
+                - cell "297.69" [ref=e920]
+                - cell "273.10" [ref=e921]
+                - cell "175.83" [ref=e922]
+                - cell "-3.00" [ref=e923]
+                - cell "graphText" [ref=e924]:
+                  - link "graphText" [ref=e925] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e926]
+              - row "TITAN 4,338.00 4,395.00 4,327.50 4,338.00 4,386.00TITAN lastPrice Arrows Up -TITAN stockIndClosePrice Arrows Up 48.00 1.11 6,23,868 272.47 4,605.00 3,303.10 5.20 graphText" [ref=e927]:
+                - cell "TITAN" [ref=e928]:
+                  - link "TITAN" [ref=e929] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=TITAN
+                - cell "4,338.00" [ref=e930]
+                - cell "4,395.00" [ref=e931]
+                - cell "4,327.50" [ref=e932]
+                - cell "4,338.00" [ref=e933]
+                - cell "4,386.00TITAN lastPrice Arrows Up" [ref=e934]:
+                  - text: 4,386.00
+                  - img "TITAN lastPrice Arrows Up"
+                - cell "-TITAN stockIndClosePrice Arrows Up" [ref=e937]:
+                  - text: "-"
+                  - img "TITAN stockIndClosePrice Arrows Up"
+                - cell "48.00" [ref=e938]
+                - cell "1.11" [ref=e939]
+                - cell "6,23,868" [ref=e940]
+                - cell "272.47" [ref=e941]
+                - cell "4,605.00" [ref=e942]
+                - cell "3,303.10" [ref=e943]
+                - cell "5.20" [ref=e944]
+                - cell "graphText" [ref=e945]:
+                  - link "graphText" [ref=e946] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e947]
+              - row "CIPLA 1,380.00 1,381.70 1,341.10 1,373.20 1,350.20CIPLA lastPrice Arrows Down -CIPLA stockIndClosePrice Arrows Down -23.00 -1.67 20,14,168 272.06 1,673.00 1,165.70 -5.72 graphText" [ref=e948]:
+                - cell "CIPLA" [ref=e949]:
+                  - link "CIPLA" [ref=e950] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=CIPLA
+                - cell "1,380.00" [ref=e951]
+                - cell "1,381.70" [ref=e952]
+                - cell "1,341.10" [ref=e953]
+                - cell "1,373.20" [ref=e954]
+                - cell "1,350.20CIPLA lastPrice Arrows Down" [ref=e955]:
+                  - text: 1,350.20
+                  - img "CIPLA lastPrice Arrows Down"
+                - cell "-CIPLA stockIndClosePrice Arrows Down" [ref=e956]:
+                  - text: "-"
+                  - img "CIPLA stockIndClosePrice Arrows Down"
+                - cell "-23.00" [ref=e957]
+                - cell "-1.67" [ref=e958]
+                - cell "20,14,168" [ref=e959]
+                - cell "272.06" [ref=e960]
+                - cell "1,673.00" [ref=e961]
+                - cell "1,165.70" [ref=e962]
+                - cell "-5.72" [ref=e963]
+                - cell "graphText" [ref=e964]:
+                  - link "graphText" [ref=e965] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e966]
+              - row "NESTLEIND 1,392.00 1,415.50 1,387.10 1,391.70 1,406.00NESTLEIND lastPrice Arrows Up -NESTLEIND stockIndClosePrice Arrows Up 14.30 1.03 18,76,655 263.99 1,498.10 1,084.70 -1.71 graphText" [ref=e967]:
+                - cell "NESTLEIND" [ref=e968]:
+                  - link "NESTLEIND" [ref=e969] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=NESTLEIND
+                - cell "1,392.00" [ref=e970]
+                - cell "1,415.50" [ref=e971]
+                - cell "1,387.10" [ref=e972]
+                - cell "1,391.70" [ref=e973]
+                - cell "1,406.00NESTLEIND lastPrice Arrows Up" [ref=e974]:
+                  - text: 1,406.00
+                  - img "NESTLEIND lastPrice Arrows Up"
+                - cell "-NESTLEIND stockIndClosePrice Arrows Up" [ref=e976]:
+                  - text: "-"
+                  - img "NESTLEIND stockIndClosePrice Arrows Up"
+                - cell "14.30" [ref=e977]
+                - cell "1.03" [ref=e978]
+                - cell "18,76,655" [ref=e979]
+                - cell "263.99" [ref=e980]
+                - cell "1,498.10" [ref=e981]
+                - cell "1,084.70" [ref=e982]
+                - cell "-1.71" [ref=e983]
+                - cell "graphText" [ref=e984]:
+                  - link "graphText" [ref=e985] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e986]
+              - row "HCLTECH 1,169.00 1,173.60 1,159.30 1,159.00 1,165.00HCLTECH lastPrice Arrows Down -HCLTECH stockIndClosePrice Arrows Down 6.00 0.52 22,63,670 263.90 1,780.10 1,089.50 2.86 graphText" [ref=e987]:
+                - cell "HCLTECH" [ref=e988]:
+                  - link "HCLTECH" [ref=e989] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=HCLTECH
+                - cell "1,169.00" [ref=e990]
+                - cell "1,173.60" [ref=e991]
+                - cell "1,159.30" [ref=e992]
+                - cell "1,159.00" [ref=e993]
+                - cell "1,165.00HCLTECH lastPrice Arrows Down" [ref=e994]:
+                  - text: 1,165.00
+                  - img "HCLTECH lastPrice Arrows Down"
+                - cell "-HCLTECH stockIndClosePrice Arrows Down" [ref=e996]:
+                  - text: "-"
+                  - img "HCLTECH stockIndClosePrice Arrows Down"
+                - cell "6.00" [ref=e997]
+                - cell "0.52" [ref=e998]
+                - cell "22,63,670" [ref=e999]
+                - cell "263.90" [ref=e1000]
+                - cell "1,780.10" [ref=e1001]
+                - cell "1,089.50" [ref=e1002]
+                - cell "2.86" [ref=e1003]
+                - cell "graphText" [ref=e1004]:
+                  - link "graphText" [ref=e1005] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1006]
+              - row "ITC 291.95 292.35 290.00 291.65 290.90ITC lastPrice Arrows Down -ITC stockIndClosePrice Arrows Down -0.75 -0.26 86,26,353 250.91 427.20 275.05 -5.99 graphText" [ref=e1007]:
+                - cell "ITC" [ref=e1008]:
+                  - link "ITC" [ref=e1009] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ITC
+                - cell "291.95" [ref=e1010]
+                - cell "292.35" [ref=e1011]
+                - cell "290.00" [ref=e1012]
+                - cell "291.65" [ref=e1013]
+                - cell "290.90ITC lastPrice Arrows Down" [ref=e1014]:
+                  - text: "290.90"
+                  - img "ITC lastPrice Arrows Down"
+                - cell "-ITC stockIndClosePrice Arrows Down" [ref=e1016]:
+                  - text: "-"
+                  - img "ITC stockIndClosePrice Arrows Down"
+                - cell "-0.75" [ref=e1017]
+                - cell "-0.26" [ref=e1018]
+                - cell "86,26,353" [ref=e1019]
+                - cell "250.91" [ref=e1020]
+                - cell "427.20" [ref=e1021]
+                - cell "275.05" [ref=e1022]
+                - cell "-5.99" [ref=e1023]
+                - cell "graphText" [ref=e1024]:
+                  - link "graphText" [ref=e1025] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1026]
+              - row "JIOFIN 242.20 244.74 241.22 241.95 242.86JIOFIN lastPrice Arrows Down -JIOFIN stockIndClosePrice Arrows Down 0.91 0.38 1,00,09,881 243.15 338.60 223.30 4.20 graphText" [ref=e1027]:
+                - cell "JIOFIN" [ref=e1028]:
+                  - link "JIOFIN" [ref=e1029] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=JIOFIN
+                - cell "242.20" [ref=e1030]
+                - cell "244.74" [ref=e1031]
+                - cell "241.22" [ref=e1032]
+                - cell "241.95" [ref=e1033]
+                - cell "242.86JIOFIN lastPrice Arrows Down" [ref=e1034]:
+                  - text: "242.86"
+                  - img "JIOFIN lastPrice Arrows Down"
+                - cell "-JIOFIN stockIndClosePrice Arrows Down" [ref=e1035]:
+                  - text: "-"
+                  - img "JIOFIN stockIndClosePrice Arrows Down"
+                - cell "0.91" [ref=e1036]
+                - cell "0.38" [ref=e1037]
+                - cell "1,00,09,881" [ref=e1038]
+                - cell "243.15" [ref=e1039]
+                - cell "338.60" [ref=e1040]
+                - cell "223.30" [ref=e1041]
+                - cell "4.20" [ref=e1042]
+                - cell "graphText" [ref=e1043]:
+                  - link "graphText" [ref=e1044] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1045]
+              - row "ULTRACEMCO 11,380.00 11,420.00 11,314.00 11,391.00 11,380.00ULTRACEMCO lastPrice Arrows Down -ULTRACEMCO stockIndClosePrice Arrows Down -11.00 -0.10 1,77,587 202.00 13,110.00 10,325.00 -0.93 graphText" [ref=e1046]:
+                - cell "ULTRACEMCO" [ref=e1047]:
+                  - link "ULTRACEMCO" [ref=e1048] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ULTRACEMCO
+                - cell "11,380.00" [ref=e1049]
+                - cell "11,420.00" [ref=e1050]
+                - cell "11,314.00" [ref=e1051]
+                - cell "11,391.00" [ref=e1052]
+                - cell "11,380.00ULTRACEMCO lastPrice Arrows Down" [ref=e1053]:
+                  - text: 11,380.00
+                  - img "ULTRACEMCO lastPrice Arrows Down"
+                - cell "-ULTRACEMCO stockIndClosePrice Arrows Down" [ref=e1054]:
+                  - text: "-"
+                  - img "ULTRACEMCO stockIndClosePrice Arrows Down"
+                - cell "-11.00" [ref=e1055]
+                - cell "-0.10" [ref=e1056]
+                - cell "1,77,587" [ref=e1057]
+                - cell "202.00" [ref=e1058]
+                - cell "13,110.00" [ref=e1059]
+                - cell "10,325.00" [ref=e1060]
+                - cell "-0.93" [ref=e1061]
+                - cell "graphText" [ref=e1062]:
+                  - link "graphText" [ref=e1063] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1064]
+              - row "POWERGRID 286.20 286.65 283.25 285.15 286.10POWERGRID lastPrice Arrows Down -POWERGRID stockIndClosePrice Arrows Down 0.95 0.33 60,08,101 171.09 324.95 250.00 -6.46 graphText" [ref=e1065]:
+                - cell "POWERGRID" [ref=e1066]:
+                  - link "POWERGRID" [ref=e1067] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=POWERGRID
+                - cell "286.20" [ref=e1068]
+                - cell "286.65" [ref=e1069]
+                - cell "283.25" [ref=e1070]
+                - cell "285.15" [ref=e1071]
+                - cell "286.10POWERGRID lastPrice Arrows Down" [ref=e1072]:
+                  - text: "286.10"
+                  - img "POWERGRID lastPrice Arrows Down"
+                - cell "-POWERGRID stockIndClosePrice Arrows Down" [ref=e1073]:
+                  - text: "-"
+                  - img "POWERGRID stockIndClosePrice Arrows Down"
+                - cell "0.95" [ref=e1074]
+                - cell "0.33" [ref=e1075]
+                - cell "60,08,101" [ref=e1076]
+                - cell "171.09" [ref=e1077]
+                - cell "324.95" [ref=e1078]
+                - cell "250.00" [ref=e1079]
+                - cell "-6.46" [ref=e1080]
+                - cell "graphText" [ref=e1081]:
+                  - link "graphText" [ref=e1082] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1083]
+              - row "BAJAJFINSV 1,792.00 1,794.00 1,751.60 1,787.30 1,765.00BAJAJFINSV lastPrice Arrows Down -BAJAJFINSV stockIndClosePrice Arrows Down -22.30 -1.25 9,03,580 159.54 2,195.00 1,597.00 2.14 graphText" [ref=e1084]:
+                - cell "BAJAJFINSV" [ref=e1085]:
+                  - link "BAJAJFINSV" [ref=e1086] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=BAJAJFINSV
+                - cell "1,792.00" [ref=e1087]
+                - cell "1,794.00" [ref=e1088]
+                - cell "1,751.60" [ref=e1089]
+                - cell "1,787.30" [ref=e1090]
+                - cell "1,765.00BAJAJFINSV lastPrice Arrows Down" [ref=e1091]:
+                  - text: 1,765.00
+                  - img "BAJAJFINSV lastPrice Arrows Down"
+                - cell "-BAJAJFINSV stockIndClosePrice Arrows Down" [ref=e1092]:
+                  - text: "-"
+                  - img "BAJAJFINSV stockIndClosePrice Arrows Down"
+                - cell "-22.30" [ref=e1093]
+                - cell "-1.25" [ref=e1094]
+                - cell "9,03,580" [ref=e1095]
+                - cell "159.54" [ref=e1096]
+                - cell "2,195.00" [ref=e1097]
+                - cell "1,597.00" [ref=e1098]
+                - cell "2.14" [ref=e1099]
+                - cell "graphText" [ref=e1100]:
+                  - link "graphText" [ref=e1101] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1102]
+              - row "APOLLOHOSP 8,390.50 8,464.50 8,385.00 8,390.50 8,425.00APOLLOHOSP lastPrice Arrows Up -APOLLOHOSP stockIndClosePrice Arrows Up 34.50 0.41 1,85,437 156.23 8,624.00 6,696.50 4.24 graphText" [ref=e1103]:
+                - cell "APOLLOHOSP" [ref=e1104]:
+                  - link "APOLLOHOSP" [ref=e1105] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=APOLLOHOSP
+                - cell "8,390.50" [ref=e1106]
+                - cell "8,464.50" [ref=e1107]
+                - cell "8,385.00" [ref=e1108]
+                - cell "8,390.50" [ref=e1109]
+                - cell "8,425.00APOLLOHOSP lastPrice Arrows Up" [ref=e1110]:
+                  - text: 8,425.00
+                  - img "APOLLOHOSP lastPrice Arrows Up"
+                - cell "-APOLLOHOSP stockIndClosePrice Arrows Up" [ref=e1113]:
+                  - text: "-"
+                  - img "APOLLOHOSP stockIndClosePrice Arrows Up"
+                - cell "34.50" [ref=e1114]
+                - cell "0.41" [ref=e1115]
+                - cell "1,85,437" [ref=e1116]
+                - cell "156.23" [ref=e1117]
+                - cell "8,624.00" [ref=e1118]
+                - cell "6,696.50" [ref=e1119]
+                - cell "4.24" [ref=e1120]
+                - cell "graphText" [ref=e1121]:
+                  - link "graphText" [ref=e1122] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1123]
+              - row "JSWSTEEL 1,280.00 1,289.50 1,269.10 1,274.30 1,286.80JSWSTEEL lastPrice Arrows Up -JSWSTEEL stockIndClosePrice Arrows Up 12.50 0.98 11,94,899 153.22 1,328.00 981.35 0.63 graphText" [ref=e1124]:
+                - cell "JSWSTEEL" [ref=e1125]:
+                  - link "JSWSTEEL" [ref=e1126] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=JSWSTEEL
+                - cell "1,280.00" [ref=e1127]
+                - cell "1,289.50" [ref=e1128]
+                - cell "1,269.10" [ref=e1129]
+                - cell "1,274.30" [ref=e1130]
+                - cell "1,286.80JSWSTEEL lastPrice Arrows Up" [ref=e1131]:
+                  - text: 1,286.80
+                  - img "JSWSTEEL lastPrice Arrows Up"
+                - cell "-JSWSTEEL stockIndClosePrice Arrows Up" [ref=e1134]:
+                  - text: "-"
+                  - img "JSWSTEEL stockIndClosePrice Arrows Up"
+                - cell "12.50" [ref=e1135]
+                - cell "0.98" [ref=e1136]
+                - cell "11,94,899" [ref=e1137]
+                - cell "153.22" [ref=e1138]
+                - cell "1,328.00" [ref=e1139]
+                - cell "981.35" [ref=e1140]
+                - cell "0.63" [ref=e1141]
+                - cell "graphText" [ref=e1142]:
+                  - link "graphText" [ref=e1143] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1144]
+              - row "ASIANPAINT 2,764.00 2,768.90 2,732.50 2,748.10 2,735.70ASIANPAINT lastPrice Arrows Down -ASIANPAINT stockIndClosePrice Arrows Down -12.40 -0.45 5,57,209 152.88 2,985.70 2,115.00 4.99 graphText" [ref=e1145]:
+                - cell "ASIANPAINT" [ref=e1146]:
+                  - link "ASIANPAINT" [ref=e1147] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=ASIANPAINT
+                - cell "2,764.00" [ref=e1148]
+                - cell "2,768.90" [ref=e1149]
+                - cell "2,732.50" [ref=e1150]
+                - cell "2,748.10" [ref=e1151]
+                - cell "2,735.70ASIANPAINT lastPrice Arrows Down" [ref=e1152]:
+                  - text: 2,735.70
+                  - img "ASIANPAINT lastPrice Arrows Down"
+                - cell "-ASIANPAINT stockIndClosePrice Arrows Down" [ref=e1153]:
+                  - text: "-"
+                  - img "ASIANPAINT stockIndClosePrice Arrows Down"
+                - cell "-12.40" [ref=e1154]
+                - cell "-0.45" [ref=e1155]
+                - cell "5,57,209" [ref=e1156]
+                - cell "152.88" [ref=e1157]
+                - cell "2,985.70" [ref=e1158]
+                - cell "2,115.00" [ref=e1159]
+                - cell "4.99" [ref=e1160]
+                - cell "graphText" [ref=e1161]:
+                  - link "graphText" [ref=e1162] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1163]
+              - row "SBILIFE 1,756.00 1,803.10 1,756.00 1,767.60 1,801.90SBILIFE lastPrice Arrows Down -SBILIFE stockIndClosePrice Arrows Down 34.30 1.94 7,30,989 130.28 2,132.00 1,700.40 -3.36 graphText" [ref=e1164]:
+                - cell "SBILIFE" [ref=e1165]:
+                  - link "SBILIFE" [ref=e1166] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=SBILIFE
+                - cell "1,756.00" [ref=e1167]
+                - cell "1,803.10" [ref=e1168]
+                - cell "1,756.00" [ref=e1169]
+                - cell "1,767.60" [ref=e1170]
+                - cell "1,801.90SBILIFE lastPrice Arrows Down" [ref=e1171]:
+                  - text: 1,801.90
+                  - img "SBILIFE lastPrice Arrows Down"
+                - cell "-SBILIFE stockIndClosePrice Arrows Down" [ref=e1173]:
+                  - text: "-"
+                  - img "SBILIFE stockIndClosePrice Arrows Down"
+                - cell "34.30" [ref=e1174]
+                - cell "1.94" [ref=e1175]
+                - cell "7,30,989" [ref=e1176]
+                - cell "130.28" [ref=e1177]
+                - cell "2,132.00" [ref=e1178]
+                - cell "1,700.40" [ref=e1179]
+                - cell "-3.36" [ref=e1180]
+                - cell "graphText" [ref=e1181]:
+                  - link "graphText" [ref=e1182] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1183]
+              - row "GRASIM 3,150.00 3,200.00 3,115.90 3,140.30 3,160.80GRASIM lastPrice Arrows Up -GRASIM stockIndClosePrice Arrows Up 20.50 0.65 3,95,269 124.12 3,200.00 2,502.50 7.74 graphText" [ref=e1184]:
+                - cell "GRASIM" [ref=e1185]:
+                  - link "GRASIM" [ref=e1186] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=GRASIM
+                - cell "3,150.00" [ref=e1187]
+                - cell "3,200.00" [ref=e1188]
+                - cell "3,115.90" [ref=e1189]
+                - cell "3,140.30" [ref=e1190]
+                - cell "3,160.80GRASIM lastPrice Arrows Up" [ref=e1191]:
+                  - text: 3,160.80
+                  - img "GRASIM lastPrice Arrows Up"
+                - cell "-GRASIM stockIndClosePrice Arrows Up" [ref=e1195]:
+                  - text: "-"
+                  - img "GRASIM stockIndClosePrice Arrows Up"
+                - cell "20.50" [ref=e1196]
+                - cell "0.65" [ref=e1197]
+                - cell "3,95,269" [ref=e1198]
+                - cell "124.12" [ref=e1199]
+                - cell "3,200.00" [ref=e1200]
+                - cell "2,502.50" [ref=e1201]
+                - cell "7.74" [ref=e1202]
+                - cell "graphText" [ref=e1203]:
+                  - link "graphText" [ref=e1204] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1205]
+              - row "MAXHEALTH 1,025.40 1,029.60 1,017.20 1,024.10 1,029.40MAXHEALTH lastPrice Arrows Down -MAXHEALTH stockIndClosePrice Arrows Down 5.30 0.52 10,93,918 111.91 1,314.30 903.00 -1.97 graphText" [ref=e1206]:
+                - cell "MAXHEALTH" [ref=e1207]:
+                  - link "MAXHEALTH" [ref=e1208] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=MAXHEALTH
+                - cell "1,025.40" [ref=e1209]
+                - cell "1,029.60" [ref=e1210]
+                - cell "1,017.20" [ref=e1211]
+                - cell "1,024.10" [ref=e1212]
+                - cell "1,029.40MAXHEALTH lastPrice Arrows Down" [ref=e1213]:
+                  - text: 1,029.40
+                  - img "MAXHEALTH lastPrice Arrows Down"
+                - cell "-MAXHEALTH stockIndClosePrice Arrows Down" [ref=e1214]:
+                  - text: "-"
+                  - img "MAXHEALTH stockIndClosePrice Arrows Down"
+                - cell "5.30" [ref=e1215]
+                - cell "0.52" [ref=e1216]
+                - cell "10,93,918" [ref=e1217]
+                - cell "111.91" [ref=e1218]
+                - cell "1,314.30" [ref=e1219]
+                - cell "903.00" [ref=e1220]
+                - cell "-1.97" [ref=e1221]
+                - cell "graphText" [ref=e1222]:
+                  - link "graphText" [ref=e1223] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1224]
+              - row "TATACONSUM 1,126.00 1,134.20 1,117.90 1,130.90 1,123.90TATACONSUM lastPrice Arrows Down -TATACONSUM stockIndClosePrice Arrows Down -7.00 -0.62 9,31,423 104.80 1,282.70 1,007.20 -8.92 graphText" [ref=e1225]:
+                - cell "TATACONSUM" [ref=e1226]:
+                  - link "TATACONSUM" [ref=e1227] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=TATACONSUM
+                - cell "1,126.00" [ref=e1228]
+                - cell "1,134.20" [ref=e1229]
+                - cell "1,117.90" [ref=e1230]
+                - cell "1,130.90" [ref=e1231]
+                - cell "1,123.90TATACONSUM lastPrice Arrows Down" [ref=e1232]:
+                  - text: 1,123.90
+                  - img "TATACONSUM lastPrice Arrows Down"
+                - cell "-TATACONSUM stockIndClosePrice Arrows Down" [ref=e1233]:
+                  - text: "-"
+                  - img "TATACONSUM stockIndClosePrice Arrows Down"
+                - cell "-7.00" [ref=e1234]
+                - cell "-0.62" [ref=e1235]
+                - cell "9,31,423" [ref=e1236]
+                - cell "104.80" [ref=e1237]
+                - cell "1,282.70" [ref=e1238]
+                - cell "1,007.20" [ref=e1239]
+                - cell "-8.92" [ref=e1240]
+                - cell "graphText" [ref=e1241]:
+                  - link "graphText" [ref=e1242] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1243]
+              - row "DRREDDY 1,276.00 1,277.40 1,260.90 1,276.90 1,269.00DRREDDY lastPrice Arrows Down -DRREDDY stockIndClosePrice Arrows Down -7.90 -0.62 6,83,616 86.67 1,379.70 1,148.40 -5.06 graphText" [ref=e1244]:
+                - cell "DRREDDY" [ref=e1245]:
+                  - link "DRREDDY" [ref=e1246] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=DRREDDY
+                - cell "1,276.00" [ref=e1247]
+                - cell "1,277.40" [ref=e1248]
+                - cell "1,260.90" [ref=e1249]
+                - cell "1,276.90" [ref=e1250]
+                - cell "1,269.00DRREDDY lastPrice Arrows Down" [ref=e1251]:
+                  - text: 1,269.00
+                  - img "DRREDDY lastPrice Arrows Down"
+                - cell "-DRREDDY stockIndClosePrice Arrows Down" [ref=e1252]:
+                  - text: "-"
+                  - img "DRREDDY stockIndClosePrice Arrows Down"
+                - cell "-7.90" [ref=e1253]
+                - cell "-0.62" [ref=e1254]
+                - cell "6,83,616" [ref=e1255]
+                - cell "86.67" [ref=e1256]
+                - cell "1,379.70" [ref=e1257]
+                - cell "1,148.40" [ref=e1258]
+                - cell "-5.06" [ref=e1259]
+                - cell "graphText" [ref=e1260]:
+                  - link "graphText" [ref=e1261] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1262]
+              - row "HDFCLIFE 576.00 582.95 573.55 574.40 582.90HDFCLIFE lastPrice Arrows Down -HDFCLIFE stockIndClosePrice Arrows Down 8.50 1.48 11,06,892 64.24 820.75 543.00 -4.24 graphText" [ref=e1263]:
+                - cell "HDFCLIFE" [ref=e1264]:
+                  - link "HDFCLIFE" [ref=e1265] [cursor=pointer]:
+                    - /url: /get-quotes/equity?symbol=HDFCLIFE
+                - cell "576.00" [ref=e1266]
+                - cell "582.95" [ref=e1267]
+                - cell "573.55" [ref=e1268]
+                - cell "574.40" [ref=e1269]
+                - cell "582.90HDFCLIFE lastPrice Arrows Down" [ref=e1270]:
+                  - text: "582.90"
+                  - img "HDFCLIFE lastPrice Arrows Down"
+                - cell "-HDFCLIFE stockIndClosePrice Arrows Down" [ref=e1271]:
+                  - text: "-"
+                  - img "HDFCLIFE stockIndClosePrice Arrows Down"
+                - cell "8.50" [ref=e1272]
+                - cell "1.48" [ref=e1273]
+                - cell "11,06,892" [ref=e1274]
+                - cell "64.24" [ref=e1275]
+                - cell "820.75" [ref=e1276]
+                - cell "543.00" [ref=e1277]
+                - cell "-4.24" [ref=e1278]
+                - cell "graphText" [ref=e1279]:
+                  - link "graphText" [ref=e1280] [cursor=pointer]:
+                    - /url: javascript:;
+                    - img "graphText" [ref=e1281]
+        - generic [ref=e1283]:
+          - heading "Note" [level=2] [ref=e1284]:
+            - generic [ref=e1285]: Note
+          - list [ref=e1286]:
+            - listitem [ref=e1287]:
+              - text: "-"
+              - strong [ref=e1288]: "%CHNG:"
+              - text: "% change is calculated with respect to adjusted price on ex-date for Corporate Actions like: Dividend, Bonus, Consolidation, Rights & Face Value Split."
+            - listitem [ref=e1289]:
+              - text: "-"
+              - strong [ref=e1290]: "52 W H/L:"
+              - text: 52 week High & Low prices are adjusted for Bonus, Consolidation, Split & Rights Corporate actions.
+            - listitem [ref=e1291]: "- The legend for the 52-week H/L indicator is given below:"
+            - listitem [ref=e1292]:
+              - text: "- for Stocks closer to 52-week high:"
+              - list [ref=e1293]:
+                - listitem [ref=e1294]:
+                  - generic [ref=e1295]: "- within 0% and 2%"
+                - listitem [ref=e1296]:
+                  - generic [ref=e1297]: "- within 2% and 5%"
+                - listitem [ref=e1298]:
+                  - generic [ref=e1299]: "- within 5% and 7%"
+            - listitem [ref=e1300]:
+              - text: "- Symbols for Stocks closer to 52-week low:"
+              - list [ref=e1301]:
+                - listitem [ref=e1302]:
+                  - generic [ref=e1303]: "- within 0% and 2%"
+                - listitem [ref=e1304]:
+                  - generic [ref=e1305]: "- within 2% and 5%"
+                - listitem [ref=e1306]:
+                  - generic [ref=e1307]: "- within 5% and 7%"
+            - listitem [ref=e1308]: "- In case, any of the index constituent undergo a scheme of arrangement (e.g. demerger), such stock will not be displayed under 'Market Watch - Equity/ Stock' section during Special Pre-Open session and it will be displayed post resumption of trading of such stock under 'Normal' market."
+            - listitem [ref=e1309]: "- Data is displayed for securities where orders have been received during the pre-open session."
+            - listitem [ref=e1310]: "- Trade Timings for T+0 settlement: One continuous trading session from 09:15 AM to 1:30 PM."
+            - listitem [ref=e1311]: "- Price Band for T+0 settlement: Price band of +/- 1% (100 Basis points) based on close price of corresponding T+1 settled security, which will be re-calibrated throughout the trading hours after +/- 0.5% (50 basis points) movement in the LTP of T+1 settled security in the regular market."
+    - contentinfo [ref=e1312]:
+      - generic [ref=e1313]:
+        - generic [ref=e1314]:
+          - generic [ref=e1316]:
+            - generic [ref=e1317]: About NSE
+            - list [ref=e1318]:
+              - listitem [ref=e1319]:
+                - link "About Us" [ref=e1320] [cursor=pointer]:
+                  - /url: /national-stock-exchange/about-nse-company
+              - listitem [ref=e1321]:
+                - link "Structure & Key Personnel" [ref=e1322] [cursor=pointer]:
+                  - /url: /structure-key-personnel/corporate-structure
+              - listitem [ref=e1323]:
+                - link "Awards and Recognitions" [ref=e1324] [cursor=pointer]:
+                  - /url: /national-stock-exchange/awards-recognition
+              - listitem [ref=e1325]:
+                - link "Regulations" [ref=e1326] [cursor=pointer]:
+                  - /url: /regulations/exchange-market-regulations-rules-byelaws-nseil
+              - listitem [ref=e1327]:
+                - link "Event Gallery" [ref=e1328] [cursor=pointer]:
+                  - /url: /event-gallery
+              - listitem [ref=e1329]:
+                - link "Media" [ref=e1330] [cursor=pointer]:
+                  - /url: /resources/exchange-communication-media-center
+              - listitem [ref=e1331]:
+                - link "Holidays" [ref=e1332] [cursor=pointer]:
+                  - /url: /resources/exchange-communication-holidays
+              - listitem [ref=e1333]:
+                - link "Careers" [ref=e1334] [cursor=pointer]:
+                  - /url: /careers-at-nse
+              - listitem [ref=e1335]:
+                - link "Contact Us" [ref=e1336] [cursor=pointer]:
+                  - /url: /contact/contact-us
+              - listitem [ref=e1337]:
+                - link "Web Information Manager" [ref=e1338] [cursor=pointer]:
+                  - /url: /static/contact/contact-us
+          - generic [ref=e1340]:
+            - generic [ref=e1341]: NSE Group Companies
+            - list [ref=e1342]:
+              - listitem [ref=e1343]:
+                - link "NAL Academy Limited" [ref=e1344] [cursor=pointer]:
+                  - /url: /nse-academy/nse-academy-overview
+              - listitem [ref=e1345]:
+                - link "NSE Clearing" [ref=e1346] [cursor=pointer]:
+                  - /url: /nse-clearing
+              - listitem [ref=e1347]:
+                - link "NSE Data & Analytics" [ref=e1348] [cursor=pointer]:
+                  - /url: /nse-data-and-analytics
+              - listitem [ref=e1349]:
+                - link "NSE Foundation" [ref=e1350] [cursor=pointer]:
+                  - /url: /nse-foundation/about-us
+              - listitem [ref=e1351]:
+                - link "NSE Indices" [ref=e1352] [cursor=pointer]:
+                  - /url: /nse-indices
+              - listitem [ref=e1353]:
+                - link "NSE International Exchange" [ref=e1354] [cursor=pointer]:
+                  - /url: /nse-international-exchange/about
+              - listitem [ref=e1355]:
+                - link "NSE International Clearing" [ref=e1356] [cursor=pointer]:
+                  - /url: /nseint_clearing/nse-international-clearing-overview
+              - listitem [ref=e1357]:
+                - link "NSE Investments" [ref=e1358] [cursor=pointer]:
+                  - /url: /nse-investments
+              - listitem [ref=e1359]:
+                - link "View all" [ref=e1360] [cursor=pointer]:
+                  - /url: /national-stock-exchange/our-group
+          - generic [ref=e1362]:
+            - generic [ref=e1363]: Products & Services
+            - list [ref=e1364]:
+              - listitem [ref=e1365]:
+                - link "Equity Market" [ref=e1366] [cursor=pointer]:
+                  - /url: /products-services/about-equity-market
+              - listitem [ref=e1367]:
+                - link "Indices" [ref=e1368] [cursor=pointer]:
+                  - /url: /products-services/about-indices
+              - listitem [ref=e1369]:
+                - link "Emerge Platform" [ref=e1370] [cursor=pointer]:
+                  - /url: /products-services/emerge-platform-about-sme
+              - listitem [ref=e1371]:
+                - link "Mutual Funds" [ref=e1372] [cursor=pointer]:
+                  - /url: /products-services/mf-about-mfss
+              - listitem [ref=e1373]:
+                - link "Equity Derivatives" [ref=e1374] [cursor=pointer]:
+                  - /url: /products-services/about-equity-derivatives
+              - listitem [ref=e1375]:
+                - link "Currency Derivatives" [ref=e1376] [cursor=pointer]:
+                  - /url: /products-services/about-currency-derivatives
+              - listitem [ref=e1377]:
+                - link "Commodity Derivatives" [ref=e1378] [cursor=pointer]:
+                  - /url: /products-services/about-commodity-derivatives
+              - listitem [ref=e1379]:
+                - link "Interest Rate Derivatives" [ref=e1380] [cursor=pointer]:
+                  - /url: /products-services/about-interest-rate-derivatives
+              - listitem [ref=e1381]:
+                - link "Fixed Income and Debt" [ref=e1382] [cursor=pointer]:
+                  - /url: /products-services/fixed-income-debt-overview
+              - listitem [ref=e1383]:
+                - link "Public Issues" [ref=e1384] [cursor=pointer]:
+                  - /url: /products-services/about-initial-public-offerings
+          - generic [ref=e1386]:
+            - list [ref=e1388]:
+              - listitem [ref=e1389]:
+                - link "Disclaimer" [ref=e1390] [cursor=pointer]:
+                  - /url: /nse-disclaimer
+              - listitem [ref=e1391]:
+                - link "Privacy Policy" [ref=e1392] [cursor=pointer]:
+                  - /url: /privacy-policy
+              - listitem [ref=e1393]:
+                - link "Terms of Use" [ref=e1394] [cursor=pointer]:
+                  - /url: /nse-terms-of-use
+              - listitem [ref=e1395]:
+                - link "Copyright" [ref=e1396] [cursor=pointer]:
+                  - /url: /nse-copyright
+              - listitem [ref=e1397]:
+                - link "Feedback" [ref=e1398] [cursor=pointer]:
+                  - /url: /feedback/new
+              - listitem [ref=e1399]:
+                - link "Site Map" [ref=e1400] [cursor=pointer]:
+                  - /url: /sitemap
+              - listitem [ref=e1401]:
+                - link "Website Policies" [ref=e1402] [cursor=pointer]:
+                  - /url: /website-policies
+              - listitem [ref=e1403]:
+                - link "Empanelment of Internal Auditors/System Auditor of Members" [ref=e1404] [cursor=pointer]:
+                  - /url: https://inspection.nseindia.com/empanelment_auditor/auditor/auditorRegistration/
+                  - text: Empanelment of Internal
+                  - text: Auditors/System Auditor of Members
+              - listitem [ref=e1405]:
+                - link "List of Empaneled Audit Firms" [ref=e1406] [cursor=pointer]:
+                  - /url: https://inspection.nseindia.com/empanelment_auditor/auditor/viewEmpanelledAuditors/
+              - listitem [ref=e1407]:
+                - link "Help" [ref=e1408] [cursor=pointer]:
+                  - /url: /static/help
+            - generic:
+              - list
+        - generic [ref=e1410]:
+          - generic [ref=e1411]:
+            - generic [ref=e1412]: Download NSE App
+            - generic [ref=e1413]:
+              - link "appstore" [ref=e1414] [cursor=pointer]:
+                - /url: https://apps.apple.com/in/app/nseindia/id6736678487
+                - img "appstore" [ref=e1415]
+              - link "playstore" [ref=e1416] [cursor=pointer]:
+                - /url: https://play.google.com/store/apps/details?id=com.nse.nseindia
+                - img "playstore" [ref=e1417]
+          - generic [ref=e1418]:
+            - generic [ref=e1419]:
+              - generic [ref=e1420]: Scan QR to
+              - generic [ref=e1421]: Download App
+            - img "qr-code" [ref=e1423]
+          - generic [ref=e1424]:
+            - link "NSE GO-BID" [ref=e1428] [cursor=pointer]:
+              - /url: https://eipo.nseindia.com/eipodc/rest/login
+            - generic [ref=e1430]:
+              - generic [ref=e1431]: Login to
+              - link "NCFM" [ref=e1433] [cursor=pointer]:
+                - /url: https://www.ncfm-india.com/ORE/OREloginPage.jsp
+    - generic [ref=e1437]:
+      - generic [ref=e1439]:
+        - paragraph [ref=e1440]:
+          - link "Copyright ©" [ref=e1441] [cursor=pointer]:
+            - /url: /nse-copyright
+          - text: National Stock Exchange of India Ltd. All rights reserved. Best viewed in Chrome and 1366 X 768 resolution. Recommended to use latest browser versions.
+        - paragraph [ref=e1442]:
+          - generic [ref=e1443]:
+            - img "GIGW" [ref=e1444]
+            - text: GIGW Compliant
+      - generic [ref=e1446]:
+        - list [ref=e1447]:
+          - listitem [ref=e1448]:
+            - link "Whatsapp chatbot of National Stock Exchange" [ref=e1449] [cursor=pointer]:
+              - /url: https://wa.me/918655986573?text=Hi
+              - generic [ref=e1450]: 
+          - listitem [ref=e1451]:
+            - link "Facebook Page of National Stock Exchange" [ref=e1452] [cursor=pointer]:
+              - /url: https://www.facebook.com/NationalStockExchange/
+              - generic [ref=e1453]: 
+          - listitem [ref=e1454]:
+            - link "Twitter Profile of NSEIndia" [ref=e1455] [cursor=pointer]:
+              - /url: https://twitter.com/NSEIndia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
+              - img [ref=e1456]
+          - listitem [ref=e1458]:
+            - link "LinkedIn Profile of NSEIndia" [ref=e1459] [cursor=pointer]:
+              - /url: https://in.linkedin.com/company/national-stock-exchange-of-india-limited
+              - generic [ref=e1460]: 
+          - listitem [ref=e1461]:
+            - link "YouTube Channel of NSEIndia" [ref=e1462] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/NSEIL1india
+              - generic [ref=e1463]: 
+          - listitem [ref=e1464]:
+            - link "Instagram Profile of NSEIndia" [ref=e1465] [cursor=pointer]:
+              - /url: https://www.instagram.com/nseindia
+              - generic [ref=e1466]: 
+          - listitem [ref=e1467]:
+            - link "RSS Feed of NSEIndia" [ref=e1468] [cursor=pointer]:
+              - /url: https://www.nseindia.com/rss-feed
+              - generic [ref=e1469]: 
+        - text: 18 Jun 2026 | 00:41 (IST)
+    - text:  
+  - generic "Go to Top" [ref=e1470] [cursor=pointer]:
+    - img [ref=e1471]:
+      - generic [ref=e1474]: ↑
+```
+
+# Test source
+
+```ts
+  1  | import { Page, Locator, expect } from '@playwright/test';
+  2  | 
+  3  | export class Homepage {
+  4  | 
+  5  |     readonly page: Page;
+  6  | 
+  7  |     // Locators
+  8  |     readonly searchBox: Locator;
+  9  |     readonly hdfcBankOption: Locator;
+  10 | 
+  11 |     constructor(page: Page) {
+  12 |         this.page = page;
+  13 | 
+  14 |         // Update these locators based on actual DOM inspection
+  15 |         this.searchBox = page.locator('#header-search-input');
+  16 | 
+  17 |         this.hdfcBankOption = page.locator(
+  18 |             "//p[contains(normalize-space(),'HDFC BANK')]"
+  19 |         );
+  20 |     }
+  21 | 
+  22 |     /**Action Methods
+  23 |      * Navigate to Homepage
+  24 |      */
+  25 |     async navigateToPage() {
+  26 |         await this.page.goto(
+  27 |             'https://www.nseindia.com/market-data/live-equity-market',
+  28 |             {
+  29 |                 waitUntil: 'domcontentloaded'
+  30 |             }
+  31 |         );
+  32 |     }
+  33 | 
+  34 | async refreshPage() {
+  35 |     await this.page.reload({
+  36 |         waitUntil: 'domcontentloaded'
+  37 |     });
+  38 | }
+  39 | 
+  40 | async searchStock(stockName: string) {
+  41 | 
+  42 |     await this.searchBox.waitFor({
+  43 |         state: 'visible'
+  44 |     });
+  45 | 
+  46 |     await this.searchBox.click();
+  47 | 
+  48 |     await this.searchBox.fill(stockName);
+  49 | 
+  50 |     const stockOption = this.page.locator(
+  51 |         'div.autocompleteList.tt-suggestion.tt-selectable.active'
+  52 |     );
+  53 | 
+  54 |     // Wait for suggestion to appear
+> 55 |     await stockOption.waitFor({
+     |                       ^ TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+  56 |         state: 'visible',
+  57 |         timeout: 10000
+  58 |     });
+  59 | 
+  60 |     // Hover before click (as per assignment requirement)
+  61 |     await stockOption.hover();
+  62 | 
+  63 |     // Click and wait for navigation simultaneously
+  64 |     await Promise.all([
+  65 |         this.page.waitForURL(/.*HDFCBANK.*/i, {
+  66 |             timeout: 15000
+  67 |         }),
+  68 |         stockOption.click()
+  69 |     ]);
+  70 | }
+  71 | }
+  72 | 
+  73 | function refreshPage() {
+  74 |     throw new Error('Function not implemented.');
+  75 | }
+  76 | 
+```
