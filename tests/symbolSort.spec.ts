@@ -11,4 +11,8 @@ test('Verify Symbol Ascending Sorting', async ({ page }) => {
     await stockPage.clickSymbolHeader();
 
     await stockPage.verifySymbolAscendingSort();
+
+
+
+    
 });
